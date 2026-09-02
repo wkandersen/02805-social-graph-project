@@ -4,11 +4,14 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import statistics
 from collections import Counter
 from pathlib import Path
 
 import networkx as nx
+
+ZETA_CAP = 20_000
 
 
 ROOT = Path(__file__).parent
@@ -35,6 +38,101 @@ def degree_distribution(values: list[int]) -> list[dict[str, int | float]]:
         {"degree": degree, "count": count, "probability": count / total}
         for degree, count in sorted(counts.items())
     ]
+
+
+def logarithmic_bins(values: list[int]) -> list[dict[str, int | float]]:
+    """Course binning scheme: width-1 bins over u = k + 1, then doubling widths."""
+    shifted = [value + 1 for value in values]
+    counts = Counter(shifted)
+    total = len(shifted)
+    largest = max(shifted)
+
+    edges = [(u, u) for u in range(1, 8)]
+    low = 8
+    while low <= largest:
+        edges.append((low, 2 * low - 1))
+        low *= 2
+
+    bins = []
+    for low, high in edges:
+        if low > largest:
+            break
+        count = sum(counts[u] for u in range(low, high + 1))
+        width = high - low + 1
+        bins.append(
+            {
+                "low": low,
+                "high": high,
+                "width": width,
+                "count": count,
+                # geometric mean of the integers covered: the only honest
+                # position for a bin on a logarithmic axis
+                "center": math.sqrt(low * high),
+                "density": count / (total * width),
+            }
+        )
+    return bins
+
+
+def _suffix_zeta(alpha: float) -> list[float]:
+    """suffix[k] = sum over j >= k of j ** -alpha, truncated at ZETA_CAP."""
+    suffix = [0.0] * (ZETA_CAP + 2)
+    for k in range(ZETA_CAP, 0, -1):
+        suffix[k] = suffix[k + 1] + k**-alpha
+    return suffix
+
+
+def _mle_alpha(tail: list[int], k_min: int) -> float:
+    total = sum(math.log(value / (k_min - 0.5)) for value in tail)
+    return 1.0 + len(tail) / total
+
+
+def power_law_fit(values: list[int]) -> dict[str, float | int | list] | None:
+    """Discrete power-law MLE with a Clauset-style k_min chosen by KS distance.
+
+    Fitted on the raw degrees, never on binned or shifted values.
+    """
+    positive = sorted(value for value in values if value > 0)
+    if len(positive) < 50:
+        return None
+
+    best = None
+    for k_min in sorted({value for value in positive if value <= max(positive) // 4}):
+        tail = [value for value in positive if value >= k_min]
+        if len(tail) < 30:
+            continue
+
+        alpha = _mle_alpha(tail, k_min)
+        suffix = _suffix_zeta(alpha)
+        normaliser = suffix[k_min]
+        size = len(tail)
+        distance = max(
+            abs(
+                (size - index) / size  # empirical P(X >= k)
+                - suffix[min(value, ZETA_CAP)] / normaliser
+            )
+            for index, value in enumerate(tail)
+        )
+
+        if best is None or distance < best["ksDistance"]:
+            best = {
+                "alpha": alpha,
+                "kMin": k_min,
+                "tailCount": size,
+                "tailShare": size / len(values),
+                "ksDistance": distance,
+            }
+
+    if best is None:
+        return None
+
+    suffix = _suffix_zeta(best["alpha"])
+    scale = best["tailShare"] / suffix[best["kMin"]]
+    best["curve"] = [
+        {"degree": degree, "probability": scale * degree ** -best["alpha"]}
+        for degree in range(best["kMin"], max(positive) + 1)
+    ]
+    return best
 
 
 def main() -> None:
@@ -144,7 +242,24 @@ def main() -> None:
             "out": degree_distribution(list(out_degrees.values())),
             "undirected": degree_distribution(list(total_degrees.values())),
         },
+        "binned": {
+            "in": logarithmic_bins(list(in_degrees.values())),
+            "out": logarithmic_bins(list(out_degrees.values())),
+            "undirected": logarithmic_bins(list(total_degrees.values())),
+        },
+        "powerLaw": {
+            "in": power_law_fit(list(in_degrees.values())),
+            "out": power_law_fit(list(out_degrees.values())),
+            "undirected": power_law_fit(list(total_degrees.values())),
+        },
     }
+
+    for degree_type, bins in insights["binned"].items():
+        raw = {point["degree"]: point["probability"] for point in insights["distributions"][degree_type]}
+        for bin_ in bins:
+            if bin_["width"] != 1:
+                continue
+            assert math.isclose(bin_["density"], raw.get(bin_["low"] - 1, 0.0))
 
     OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / "network.json").write_text(

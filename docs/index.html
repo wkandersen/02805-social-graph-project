@@ -132,7 +132,9 @@
             Choose a degree and switch the axes. On linear axes the long tail
             is almost invisible; log–log reveals just how far the hubs stretch.
             Zero-degree nodes are shown at <em>k + 1</em> on logarithmic axes
-            so the isolates stay in the story.
+            so the isolates stay in the story. Add logarithmic binning to calm
+            the noisy tail, and a fitted power law to see how far a straight
+            line actually carries.
           </p>
         </div>
 
@@ -143,17 +145,75 @@
               <button data-degree="out">Out-degree</button>
               <button data-degree="undirected">Undirected</button>
             </div>
-            <label class="toggle">
-              <input id="log-toggle" type="checkbox" />
-              <span></span>
-              Log–log
-            </label>
+            <div class="toggle-row">
+              <label class="toggle">
+                <input id="log-toggle" type="checkbox" />
+                <span></span>
+                Log–log
+              </label>
+              <label class="toggle">
+                <input id="bin-toggle" type="checkbox" />
+                <span></span>
+                Binning
+              </label>
+              <label class="toggle">
+                <input id="powerlaw-toggle" type="checkbox" />
+                <span></span>
+                Power law
+              </label>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <span class="key key-raw">raw P(k)</span>
+            <span class="key key-bin">logarithmic bins</span>
+            <span class="key key-fit">power-law fit</span>
+            <p id="fit-note" class="fit-note" hidden></p>
           </div>
           <div id="degree-chart" class="degree-chart" aria-live="polite"></div>
           <div class="chart-foot">
             <span>Each dot is one observed degree value</span>
             <span id="axis-note">x = degree k · y = P(k)</span>
           </div>
+        </div>
+
+        <div class="binning-explainer">
+          <article>
+            <h3>Why bin at all?</h3>
+            <p>
+              Out in the tail, most degrees are held by one or two characters,
+              so the raw dots scatter into noise. Binning averages over ranges
+              of <em>k</em> that widen as <em>k</em> grows, which recovers the
+              shape the noise was hiding.
+            </p>
+          </article>
+          <article>
+            <h3>Our scheme</h3>
+            <p>
+              Working in <em>u = k + 1</em>: width-1 bins for u = 1…7, then
+              doubling bins [8, 16), [16, 32), [32, 64), [64, 128). Every count
+              is divided by its bin width, and each wide bin is drawn at the
+              geometric mean of the integers it covers—never the arithmetic
+              midpoint, which would sit wrong on a log axis.
+            </p>
+          </article>
+          <article>
+            <h3>The check that matters</h3>
+            <p>
+              Where the bins are one unit wide, the binned curve must land
+              exactly on the raw dots. Our build script asserts this before the
+              page is generated—turn both series on and look at the low-k end.
+            </p>
+          </article>
+          <article class="binning-warning">
+            <h3>What we did not do</h3>
+            <p>
+              We never fit a slope to the binned points. The exponent above is
+              a maximum-likelihood fit to the <em>raw</em> degrees above
+              k<sub>min</sub>, with k<sub>min</sub> chosen by minimising the KS
+              distance. Whether this really is a power law is a week-2 question;
+              here the line is a reference, not a verdict.
+            </p>
+          </article>
         </div>
       </section>
 

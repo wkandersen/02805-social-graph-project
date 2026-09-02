@@ -12,6 +12,8 @@ const palette = [
 const state = {
   degree: "in",
   log: false,
+  binned: false,
+  powerLaw: false,
   filter: "giant",
   insights: null,
   network: null,
@@ -77,6 +79,9 @@ function renderDegreeChart() {
 
   const raw = state.insights.distributions[state.degree];
   const data = raw.filter((point) => !state.log || point.probability > 0);
+  const bins = state.binned ? state.insights.binned[state.degree] : [];
+  const fit = state.insights.powerLaw[state.degree];
+  const curve = state.powerLaw && fit ? fit.curve : [];
   const width = Math.max(host.clientWidth, 320);
   const height = window.innerWidth < 560 ? 390 : 480;
   const margin = { top: 24, right: 26, bottom: 55, left: 65 };
@@ -92,10 +97,24 @@ function renderDegreeChart() {
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
+  // The binned series already lives in u = k + 1 space; the raw dots and the
+  // fitted curve are shifted only when the logarithmic axis needs them to be.
   const xValue = (point) => (state.log ? point.degree + 1 : point.degree);
-  const maxX = d3.max(data, xValue);
-  const maxY = d3.max(data, (point) => point.probability);
-  const minY = d3.min(data, (point) => point.probability);
+  const binX = (bin) => (state.log ? bin.center : bin.center - 1);
+  const visibleBins = bins.filter((bin) => !state.log || bin.density > 0);
+  const maxX = d3.max([
+    d3.max(data, xValue),
+    d3.max(visibleBins, binX) ?? 0,
+    d3.max(curve, xValue) ?? 0,
+  ]);
+  const maxY = d3.max([
+    d3.max(data, (point) => point.probability),
+    d3.max(visibleBins, (bin) => bin.density) ?? 0,
+  ]);
+  const minY = d3.min([
+    d3.min(data, (point) => point.probability),
+    d3.min(visibleBins, (bin) => bin.density) ?? Infinity,
+  ]);
   const x = state.log
     ? d3.scaleLog().domain([1, maxX]).range([0, innerWidth]).nice()
     : d3.scaleLinear().domain([0, maxX]).range([0, innerWidth]).nice();
@@ -127,6 +146,54 @@ function renderDegreeChart() {
     .append("g")
     .attr("class", "axis")
     .call(d3.axisLeft(y).ticks(yTicks, state.log ? "~g" : ".0%"));
+
+  if (curve.length) {
+    const [yFloor] = y.domain();
+    plot
+      .append("path")
+      .datum(
+        curve.filter(
+          (point) => point.probability >= yFloor && xValue(point) <= maxX,
+        ),
+      )
+      .attr("class", "powerlaw-line")
+      .attr(
+        "d",
+        d3
+          .line()
+          .x((point) => x(xValue(point)))
+          .y((point) => y(point.probability)),
+      );
+  }
+
+  if (visibleBins.length) {
+    plot
+      .append("path")
+      .datum(visibleBins)
+      .attr("class", "binned-line")
+      .attr(
+        "d",
+        d3
+          .line()
+          .x((bin) => x(binX(bin)))
+          .y((bin) => y(bin.density)),
+      );
+
+    plot
+      .selectAll(".binned-marker")
+      .data(visibleBins)
+      .join("rect")
+      .attr("class", "binned-marker")
+      .attr("x", (bin) => x(binX(bin)) - 4.5)
+      .attr("y", (bin) => y(bin.density) - 4.5)
+      .attr("width", 9)
+      .attr("height", 9)
+      .append("title")
+      .text(
+        (bin) =>
+          `bin u = ${bin.low}${bin.width === 1 ? "" : `–${bin.high}`}\nwidth ${bin.width}\n${bin.count} character${bin.count === 1 ? "" : "s"}\ndensity ${bin.density.toFixed(4)}`,
+      );
+  }
 
   plot
     .selectAll(".chart-dot")
@@ -170,6 +237,25 @@ function renderDegreeChart() {
   document.querySelector("#axis-note").textContent = state.log
     ? "x = degree k + 1 · y = P(k) · logarithmic axes"
     : "x = degree k · y = P(k) · linear axes";
+
+  document.querySelector(".key-bin").classList.toggle("off", !state.binned);
+  document.querySelector(".key-fit").classList.toggle("off", !state.powerLaw);
+  updateFitNote(fit);
+}
+
+function updateFitNote(fit) {
+  const note = document.querySelector("#fit-note");
+  if (!state.powerLaw || !fit) {
+    note.hidden = true;
+    return;
+  }
+
+  note.hidden = false;
+  note.innerHTML = `
+    <strong>&alpha; = ${fit.alpha.toFixed(2)}</strong>
+    <span>fitted on raw degrees k &ge; ${fit.kMin} (${fit.tailCount} characters,
+    KS distance ${fit.ksDistance.toFixed(3)})</span>
+  `;
 }
 
 function networkData() {
@@ -334,9 +420,16 @@ function bindControls() {
     });
   });
 
-  document.querySelector("#log-toggle").addEventListener("change", (event) => {
-    state.log = event.target.checked;
-    renderDegreeChart();
+  const toggles = {
+    "#log-toggle": "log",
+    "#bin-toggle": "binned",
+    "#powerlaw-toggle": "powerLaw",
+  };
+  Object.entries(toggles).forEach(([selector, key]) => {
+    document.querySelector(selector).addEventListener("change", (event) => {
+      state[key] = event.target.checked;
+      renderDegreeChart();
+    });
   });
 
   document.querySelectorAll("[data-filter]").forEach((button) => {

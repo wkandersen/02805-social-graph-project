@@ -723,5 +723,1146 @@
         "probability": 0.0033003300330033004
       }
     ]
+  },
+  "binned": {
+    "in": [
+      {
+        "low": 1,
+        "high": 1,
+        "width": 1,
+        "count": 58,
+        "center": 1.0,
+        "density": 0.19141914191419143
+      },
+      {
+        "low": 2,
+        "high": 2,
+        "width": 1,
+        "count": 41,
+        "center": 2.0,
+        "density": 0.1353135313531353
+      },
+      {
+        "low": 3,
+        "high": 3,
+        "width": 1,
+        "count": 43,
+        "center": 3.0,
+        "density": 0.1419141914191419
+      },
+      {
+        "low": 4,
+        "high": 4,
+        "width": 1,
+        "count": 28,
+        "center": 4.0,
+        "density": 0.0924092409240924
+      },
+      {
+        "low": 5,
+        "high": 5,
+        "width": 1,
+        "count": 21,
+        "center": 5.0,
+        "density": 0.06930693069306931
+      },
+      {
+        "low": 6,
+        "high": 6,
+        "width": 1,
+        "count": 22,
+        "center": 6.0,
+        "density": 0.07260726072607261
+      },
+      {
+        "low": 7,
+        "high": 7,
+        "width": 1,
+        "count": 13,
+        "center": 7.0,
+        "density": 0.0429042904290429
+      },
+      {
+        "low": 8,
+        "high": 15,
+        "width": 8,
+        "count": 46,
+        "center": 10.954451150103322,
+        "density": 0.018976897689768978
+      },
+      {
+        "low": 16,
+        "high": 31,
+        "width": 16,
+        "count": 26,
+        "center": 22.271057451320086,
+        "density": 0.005363036303630363
+      },
+      {
+        "low": 32,
+        "high": 63,
+        "width": 32,
+        "count": 3,
+        "center": 44.8998886412873,
+        "density": 0.0003094059405940594
+      },
+      {
+        "low": 64,
+        "high": 127,
+        "width": 64,
+        "count": 2,
+        "center": 90.15542135667715,
+        "density": 0.00010313531353135314
+      }
+    ],
+    "out": [
+      {
+        "low": 1,
+        "high": 1,
+        "width": 1,
+        "count": 20,
+        "center": 1.0,
+        "density": 0.066006600660066
+      },
+      {
+        "low": 2,
+        "high": 2,
+        "width": 1,
+        "count": 31,
+        "center": 2.0,
+        "density": 0.10231023102310231
+      },
+      {
+        "low": 3,
+        "high": 3,
+        "width": 1,
+        "count": 37,
+        "center": 3.0,
+        "density": 0.12211221122112212
+      },
+      {
+        "low": 4,
+        "high": 4,
+        "width": 1,
+        "count": 40,
+        "center": 4.0,
+        "density": 0.132013201320132
+      },
+      {
+        "low": 5,
+        "high": 5,
+        "width": 1,
+        "count": 31,
+        "center": 5.0,
+        "density": 0.10231023102310231
+      },
+      {
+        "low": 6,
+        "high": 6,
+        "width": 1,
+        "count": 21,
+        "center": 6.0,
+        "density": 0.06930693069306931
+      },
+      {
+        "low": 7,
+        "high": 7,
+        "width": 1,
+        "count": 16,
+        "center": 7.0,
+        "density": 0.052805280528052806
+      },
+      {
+        "low": 8,
+        "high": 15,
+        "width": 8,
+        "count": 86,
+        "center": 10.954451150103322,
+        "density": 0.03547854785478548
+      },
+      {
+        "low": 16,
+        "high": 31,
+        "width": 16,
+        "count": 21,
+        "center": 22.271057451320086,
+        "density": 0.004331683168316832
+      }
+    ],
+    "undirected": [
+      {
+        "low": 1,
+        "high": 1,
+        "width": 1,
+        "count": 17,
+        "center": 1.0,
+        "density": 0.056105610561056105
+      },
+      {
+        "low": 2,
+        "high": 2,
+        "width": 1,
+        "count": 18,
+        "center": 2.0,
+        "density": 0.0594059405940594
+      },
+      {
+        "low": 3,
+        "high": 3,
+        "width": 1,
+        "count": 26,
+        "center": 3.0,
+        "density": 0.0858085808580858
+      },
+      {
+        "low": 4,
+        "high": 4,
+        "width": 1,
+        "count": 31,
+        "center": 4.0,
+        "density": 0.10231023102310231
+      },
+      {
+        "low": 5,
+        "high": 5,
+        "width": 1,
+        "count": 25,
+        "center": 5.0,
+        "density": 0.08250825082508251
+      },
+      {
+        "low": 6,
+        "high": 6,
+        "width": 1,
+        "count": 21,
+        "center": 6.0,
+        "density": 0.06930693069306931
+      },
+      {
+        "low": 7,
+        "high": 7,
+        "width": 1,
+        "count": 22,
+        "center": 7.0,
+        "density": 0.07260726072607261
+      },
+      {
+        "low": 8,
+        "high": 15,
+        "width": 8,
+        "count": 74,
+        "center": 10.954451150103322,
+        "density": 0.03052805280528053
+      },
+      {
+        "low": 16,
+        "high": 31,
+        "width": 16,
+        "count": 60,
+        "center": 22.271057451320086,
+        "density": 0.012376237623762377
+      },
+      {
+        "low": 32,
+        "high": 63,
+        "width": 32,
+        "count": 6,
+        "center": 44.8998886412873,
+        "density": 0.0006188118811881188
+      },
+      {
+        "low": 64,
+        "high": 127,
+        "width": 64,
+        "count": 3,
+        "center": 90.15542135667715,
+        "density": 0.0001547029702970297
+      }
+    ]
+  },
+  "powerLaw": {
+    "in": {
+      "alpha": 2.407427120073673,
+      "kMin": 8,
+      "tailCount": 67,
+      "tailShare": 0.22112211221122113,
+      "ksDistance": 0.09405711689166207,
+      "curve": [
+        {
+          "degree": 8,
+          "probability": 0.03561305924117447
+        },
+        {
+          "degree": 9,
+          "probability": 0.026820280298124062
+        },
+        {
+          "degree": 10,
+          "probability": 0.020811600885384324
+        },
+        {
+          "degree": 11,
+          "probability": 0.016544575014897454
+        },
+        {
+          "degree": 12,
+          "probability": 0.013417833840094172
+        },
+        {
+          "degree": 13,
+          "probability": 0.011066114821545518
+        },
+        {
+          "degree": 14,
+          "probability": 0.009257908678634802
+        },
+        {
+          "degree": 15,
+          "probability": 0.007841129309767055
+        },
+        {
+          "degree": 16,
+          "probability": 0.006712765972582658
+        },
+        {
+          "degree": 17,
+          "probability": 0.005801182196822922
+        },
+        {
+          "degree": 18,
+          "probability": 0.0050554001480508275
+        },
+        {
+          "degree": 19,
+          "probability": 0.004438400720222563
+        },
+        {
+          "degree": 20,
+          "probability": 0.0039228139686707745
+        },
+        {
+          "degree": 21,
+          "probability": 0.0034880766495080503
+        },
+        {
+          "degree": 22,
+          "probability": 0.0031185150210977005
+        },
+        {
+          "degree": 23,
+          "probability": 0.0028020255181534313
+        },
+        {
+          "degree": 24,
+          "probability": 0.0025291502709044395
+        },
+        {
+          "degree": 25,
+          "probability": 0.0022924185791148646
+        },
+        {
+          "degree": 26,
+          "probability": 0.0020858707621747574
+        },
+        {
+          "degree": 27,
+          "probability": 0.001904709132747239
+        },
+        {
+          "degree": 28,
+          "probability": 0.001745038917728425
+        },
+        {
+          "degree": 29,
+          "probability": 0.0016036737048332483
+        },
+        {
+          "degree": 30,
+          "probability": 0.0014779877701820536
+        },
+        {
+          "degree": 31,
+          "probability": 0.0013658028704339722
+        },
+        {
+          "degree": 32,
+          "probability": 0.0012653006498965843
+        },
+        {
+          "degree": 33,
+          "probability": 0.0011749542800453545
+        },
+        {
+          "degree": 34,
+          "probability": 0.0010934746770241515
+        },
+        {
+          "degree": 35,
+          "probability": 0.0010197678677163063
+        },
+        {
+          "degree": 36,
+          "probability": 0.0009529009530411175
+        },
+        {
+          "degree": 37,
+          "probability": 0.0008920747530880874
+        },
+        {
+          "degree": 38,
+          "probability": 0.0008366016838269754
+        },
+        {
+          "degree": 39,
+          "probability": 0.0007858877584549929
+        },
+        {
+          "degree": 40,
+          "probability": 0.0007394178620639243
+        },
+        {
+          "degree": 41,
+          "probability": 0.0006967436401957385
+        },
+        {
+          "degree": 42,
+          "probability": 0.0006574734870153095
+        },
+        {
+          "degree": 43,
+          "probability": 0.0006212642294486693
+        },
+        {
+          "degree": 44,
+          "probability": 0.0005878141885213163
+        },
+        {
+          "degree": 45,
+          "probability": 0.0005568573647013672
+        },
+        {
+          "degree": 46,
+          "probability": 0.0005281585450210914
+        },
+        {
+          "degree": 47,
+          "probability": 0.0005015091696067181
+        },
+        {
+          "degree": 48,
+          "probability": 0.00047672382659130514
+        },
+        {
+          "degree": 49,
+          "probability": 0.0004536372691710571
+        },
+        {
+          "degree": 50,
+          "probability": 0.0004321018682665427
+        },
+        {
+          "degree": 51,
+          "probability": 0.0004119854299879248
+        },
+        {
+          "degree": 52,
+          "probability": 0.0003931693197349142
+        },
+        {
+          "degree": 53,
+          "probability": 0.0003755468449470982
+        },
+        {
+          "degree": 54,
+          "probability": 0.0003590218567685013
+        },
+        {
+          "degree": 55,
+          "probability": 0.0003435075375981166
+        },
+        {
+          "degree": 56,
+          "probability": 0.00032892534697542955
+        },
+        {
+          "degree": 57,
+          "probability": 0.00031520410273978914
+        },
+        {
+          "degree": 58,
+          "probability": 0.0003022791780966688
+        },
+        {
+          "degree": 59,
+          "probability": 0.00029009179827434547
+        },
+        {
+          "degree": 60,
+          "probability": 0.00027858842298222663
+        },
+        {
+          "degree": 61,
+          "probability": 0.0002677202029835781
+        },
+        {
+          "degree": 62,
+          "probability": 0.0002574425008482515
+        },
+        {
+          "degree": 63,
+          "probability": 0.00024771446741759335
+        },
+        {
+          "degree": 64,
+          "probability": 0.00023849866674448617
+        },
+        {
+          "degree": 65,
+          "probability": 0.00022976074330735438
+        },
+        {
+          "degree": 66,
+          "probability": 0.00022146912617127646
+        },
+        {
+          "degree": 67,
+          "probability": 0.00021359476550930279
+        },
+        {
+          "degree": 68,
+          "probability": 0.00020611089752497393
+        },
+        {
+          "degree": 69,
+          "probability": 0.0001989928343512112
+        },
+        {
+          "degree": 70,
+          "probability": 0.00019221777595631914
+        },
+        {
+          "degree": 71,
+          "probability": 0.000185764641477304
+        },
+        {
+          "degree": 72,
+          "probability": 0.00017961391773443856
+        },
+        {
+          "degree": 73,
+          "probability": 0.00017374752296762176
+        },
+        {
+          "degree": 74,
+          "probability": 0.0001681486840817752
+        },
+        {
+          "degree": 75,
+          "probability": 0.00016280182590131014
+        },
+        {
+          "degree": 76,
+          "probability": 0.00015769247111762228
+        },
+        {
+          "degree": 77,
+          "probability": 0.00015280714977286797
+        },
+        {
+          "degree": 78,
+          "probability": 0.00014813331726151247
+        },
+        {
+          "degree": 79,
+          "probability": 0.00014365927995133062
+        },
+        {
+          "degree": 80,
+          "probability": 0.00013937412763023385
+        },
+        {
+          "degree": 81,
+          "probability": 0.00013526767207665957
+        },
+        {
+          "degree": 82,
+          "probability": 0.00013133039113112389
+        },
+        {
+          "degree": 83,
+          "probability": 0.00012755337771647803
+        },
+        {
+          "degree": 84,
+          "probability": 0.00012392829331575519
+        },
+        {
+          "degree": 85,
+          "probability": 0.00012044732547039233
+        },
+        {
+          "degree": 86,
+          "probability": 0.00011710314890904267
+        },
+        {
+          "degree": 87,
+          "probability": 0.00011388888995899629
+        },
+        {
+          "degree": 88,
+          "probability": 0.00011079809392912607
+        },
+        {
+          "degree": 89,
+          "probability": 0.00010782469518589438
+        },
+        {
+          "degree": 90,
+          "probability": 0.0001049629896728331
+        },
+        {
+          "degree": 91,
+          "probability": 0.0001022076096495091
+        },
+        {
+          "degree": 92,
+          "probability": 9.955350044871422e-05
+        },
+        {
+          "degree": 93,
+          "probability": 9.699589907082137e-05
+        },
+        {
+          "degree": 94,
+          "probability": 9.453031445223124e-05
+        },
+        {
+          "degree": 95,
+          "probability": 9.21525092608618e-05
+        },
+        {
+          "degree": 96,
+          "probability": 8.985848308593588e-05
+        },
+        {
+          "degree": 97,
+          "probability": 8.764445690210167e-05
+        },
+        {
+          "degree": 98,
+          "probability": 8.550685869935297e-05
+        },
+        {
+          "degree": 99,
+          "probability": 8.34423101804561e-05
+        },
+        {
+          "degree": 100,
+          "probability": 8.144761443677043e-05
+        },
+        {
+          "degree": 101,
+          "probability": 7.95197445215921e-05
+        },
+        {
+          "degree": 102,
+          "probability": 7.765583284755664e-05
+        },
+        {
+          "degree": 103,
+          "probability": 7.585316134129978e-05
+        },
+        {
+          "degree": 104,
+          "probability": 7.410915229457734e-05
+        },
+        {
+          "degree": 105,
+          "probability": 7.242135985645478e-05
+        },
+        {
+          "degree": 106,
+          "probability": 7.078746211606052e-05
+        }
+      ]
+    },
+    "out": {
+      "alpha": 2.937028114798217,
+      "kMin": 7,
+      "tailCount": 107,
+      "tailShare": 0.35313531353135313,
+      "ksDistance": 0.1270454360088344,
+      "curve": [
+        {
+          "degree": 7,
+          "probability": 0.08512319209776376
+        },
+        {
+          "degree": 8,
+          "probability": 0.0575074251029884
+        },
+        {
+          "degree": 9,
+          "probability": 0.040689984639921135
+        },
+        {
+          "degree": 10,
+          "probability": 0.029860459720202227
+        },
+        {
+          "degree": 11,
+          "probability": 0.022569659631288697
+        },
+        {
+          "degree": 12,
+          "probability": 0.017479900003875955
+        },
+        {
+          "degree": 13,
+          "probability": 0.013817887752981298
+        },
+        {
+          "degree": 14,
+          "probability": 0.011115124729060469
+        },
+        {
+          "degree": 15,
+          "probability": 0.00907635577569577
+        },
+        {
+          "degree": 16,
+          "probability": 0.0075091427743064106
+        },
+        {
+          "degree": 17,
+          "probability": 0.006284366842835691
+        },
+        {
+          "degree": 18,
+          "probability": 0.005313173100661478
+        },
+        {
+          "degree": 19,
+          "probability": 0.004533037654006187
+        },
+        {
+          "degree": 20,
+          "probability": 0.0038990870299594076
+        },
+        {
+          "degree": 21,
+          "probability": 0.0033785423090433126
+        },
+        {
+          "degree": 22,
+          "probability": 0.0029470767685274004
+        },
+        {
+          "degree": 23,
+          "probability": 0.00258637602233433
+        },
+        {
+          "degree": 24,
+          "probability": 0.0022824716038778578
+        },
+        {
+          "degree": 25,
+          "probability": 0.0020245825820780065
+        },
+        {
+          "degree": 26,
+          "probability": 0.0018042973023162634
+        },
+        {
+          "degree": 27,
+          "probability": 0.0016149868358133106
+        },
+        {
+          "degree": 28,
+          "probability": 0.0014513788157835919
+        }
+      ]
+    },
+    "undirected": {
+      "alpha": 3.1482993793972827,
+      "kMin": 14,
+      "tailCount": 73,
+      "tailShare": 0.24092409240924093,
+      "ksDistance": 0.08734204009190727,
+      "curve": [
+        {
+          "degree": 14,
+          "probability": 0.034244121870327486
+        },
+        {
+          "degree": 15,
+          "probability": 0.027558326197658987
+        },
+        {
+          "degree": 16,
+          "probability": 0.022491065134845
+        },
+        {
+          "degree": 17,
+          "probability": 0.018583120449688906
+        },
+        {
+          "degree": 18,
+          "probability": 0.01552267513992478
+        },
+        {
+          "degree": 19,
+          "probability": 0.013093056715701712
+        },
+        {
+          "degree": 20,
+          "probability": 0.011140592514559731
+        },
+        {
+          "degree": 21,
+          "probability": 0.009554281489474927
+        },
+        {
+          "degree": 22,
+          "probability": 0.00825261765205045
+        },
+        {
+          "degree": 23,
+          "probability": 0.00717485810155351
+        },
+        {
+          "degree": 24,
+          "probability": 0.006275119803338367
+        },
+        {
+          "degree": 25,
+          "probability": 0.005518315865938185
+        },
+        {
+          "degree": 26,
+          "probability": 0.00487731161796582
+        },
+        {
+          "degree": 27,
+          "probability": 0.004330904098464407
+        },
+        {
+          "degree": 28,
+          "probability": 0.003862366534172269
+        },
+        {
+          "degree": 29,
+          "probability": 0.003458386348379962
+        },
+        {
+          "degree": 30,
+          "probability": 0.003108281101401858
+        },
+        {
+          "degree": 31,
+          "probability": 0.0028034132539207597
+        },
+        {
+          "degree": 32,
+          "probability": 0.002536748865211397
+        },
+        {
+          "degree": 33,
+          "probability": 0.0023025216523663073
+        },
+        {
+          "degree": 34,
+          "probability": 0.0020959749762940656
+        },
+        {
+          "degree": 35,
+          "probability": 0.0019131620241684977
+        },
+        {
+          "degree": 36,
+          "probability": 0.0017507898496653713
+        },
+        {
+          "degree": 37,
+          "probability": 0.0016060967480645363
+        },
+        {
+          "degree": 38,
+          "probability": 0.00147675517217934
+        },
+        {
+          "degree": 39,
+          "probability": 0.0013607943660050464
+        },
+        {
+          "degree": 40,
+          "probability": 0.0012565383297613551
+        },
+        {
+          "degree": 41,
+          "probability": 0.001162555786627118
+        },
+        {
+          "degree": 42,
+          "probability": 0.0010776196049864318
+        },
+        {
+          "degree": 43,
+          "probability": 0.0010006737155941062
+        },
+        {
+          "degree": 44,
+          "probability": 0.0009308060039997212
+        },
+        {
+          "degree": 45,
+          "probability": 0.000867225992935777
+        },
+        {
+          "degree": 46,
+          "probability": 0.0008092463846441169
+        },
+        {
+          "degree": 47,
+          "probability": 0.0007562677292503569
+        },
+        {
+          "degree": 48,
+          "probability": 0.0007077656369205064
+        },
+        {
+          "degree": 49,
+          "probability": 0.0006632800694344131
+        },
+        {
+          "degree": 50,
+          "probability": 0.0006224063390003255
+        },
+        {
+          "degree": 51,
+          "probability": 0.0005847875146058616
+        },
+        {
+          "degree": 52,
+          "probability": 0.0005501079934621968
+        },
+        {
+          "degree": 53,
+          "probability": 0.0005180880405641792
+        },
+        {
+          "degree": 54,
+          "probability": 0.000488479135658983
+        },
+        {
+          "degree": 55,
+          "probability": 0.00046105999598039987
+        },
+        {
+          "degree": 56,
+          "probability": 0.000435633166497408
+        },
+        {
+          "degree": 57,
+          "probability": 0.00041202208833000207
+        },
+        {
+          "degree": 58,
+          "probability": 0.0003900685713245086
+        },
+        {
+          "degree": 59,
+          "probability": 0.0003696306092751438
+        },
+        {
+          "degree": 60,
+          "probability": 0.00035058048649386626
+        },
+        {
+          "degree": 61,
+          "probability": 0.0003328031328123709
+        },
+        {
+          "degree": 62,
+          "probability": 0.00031619469100128446
+        },
+        {
+          "degree": 63,
+          "probability": 0.00030066126629278597
+        },
+        {
+          "degree": 64,
+          "probability": 0.0002861178324178847
+        },
+        {
+          "degree": 65,
+          "probability": 0.0002724872724978064
+        },
+        {
+          "degree": 66,
+          "probability": 0.0002596995364045997
+        },
+        {
+          "degree": 67,
+          "probability": 0.00024769089894556383
+        },
+        {
+          "degree": 68,
+          "probability": 0.00023640330552366693
+        },
+        {
+          "degree": 69,
+          "probability": 0.00022578379385833705
+        },
+        {
+          "degree": 70,
+          "probability": 0.00021578398198029237
+        },
+        {
+          "degree": 71,
+          "probability": 0.0002063596140914558
+        },
+        {
+          "degree": 72,
+          "probability": 0.00019747015704833892
+        },
+        {
+          "degree": 73,
+          "probability": 0.0001890784412190075
+        },
+        {
+          "degree": 74,
+          "probability": 0.00018115034030826061
+        },
+        {
+          "degree": 75,
+          "probability": 0.00017365448546646572
+        },
+        {
+          "degree": 76,
+          "probability": 0.00016656200961408222
+        },
+        {
+          "degree": 77,
+          "probability": 0.0001598463184424866
+        },
+        {
+          "degree": 78,
+          "probability": 0.0001534828850057996
+        },
+        {
+          "degree": 79,
+          "probability": 0.00014744906520930344
+        },
+        {
+          "degree": 80,
+          "probability": 0.00014172393183719748
+        },
+        {
+          "degree": 81,
+          "probability": 0.00013628812505381673
+        },
+        {
+          "degree": 82,
+          "probability": 0.00013112371756472658
+        },
+        {
+          "degree": 83,
+          "probability": 0.00012621409284295311
+        },
+        {
+          "degree": 84,
+          "probability": 0.00012154383501578542
+        },
+        {
+          "degree": 85,
+          "probability": 0.00011709862917313947
+        },
+        {
+          "degree": 86,
+          "probability": 0.00011286517100283677
+        },
+        {
+          "degree": 87,
+          "probability": 0.00010883108478424657
+        },
+        {
+          "degree": 88,
+          "probability": 0.00010498484888205898
+        },
+        {
+          "degree": 89,
+          "probability": 0.00010131572797862458
+        },
+        {
+          "degree": 90,
+          "probability": 9.781371136813528e-05
+        },
+        {
+          "degree": 91,
+          "probability": 9.446945671048977e-05
+        },
+        {
+          "degree": 92,
+          "probability": 9.12742387083277e-05
+        },
+        {
+          "degree": 93,
+          "probability": 8.821990222857847e-05
+        },
+        {
+          "degree": 94,
+          "probability": 8.529881944095237e-05
+        },
+        {
+          "degree": 95,
+          "probability": 8.250385059095415e-05
+        },
+        {
+          "degree": 96,
+          "probability": 7.982830806497016e-05
+        },
+        {
+          "degree": 97,
+          "probability": 7.726592344040711e-05
+        },
+        {
+          "degree": 98,
+          "probability": 7.48108172453025e-05
+        },
+        {
+          "degree": 99,
+          "probability": 7.245747117976712e-05
+        },
+        {
+          "degree": 100,
+          "probability": 7.020070257647834e-05
+        },
+        {
+          "degree": 101,
+          "probability": 6.803564089958866e-05
+        },
+        {
+          "degree": 102,
+          "probability": 6.595770610116265e-05
+        },
+        {
+          "degree": 103,
+          "probability": 6.396258867189146e-05
+        },
+        {
+          "degree": 104,
+          "probability": 6.204623123859729e-05
+        },
+        {
+          "degree": 105,
+          "probability": 6.02048115751488e-05
+        },
+        {
+          "degree": 106,
+          "probability": 5.843472690604678e-05
+        }
+      ]
+    }
   }
 }

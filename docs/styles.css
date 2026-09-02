@@ -466,6 +466,78 @@ h2 {
   transform: translateX(17px);
 }
 
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: center;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  padding-bottom: 14px;
+}
+
+.key {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font: 10px var(--mono);
+}
+
+.key::before {
+  width: 16px;
+  height: 3px;
+  content: "";
+}
+
+.key.off {
+  opacity: 0.3;
+}
+
+.key-raw::before {
+  height: 9px;
+  width: 9px;
+  background: var(--violet);
+  border-radius: 50%;
+}
+
+.key-bin::before {
+  background: var(--orange);
+}
+
+.key-fit::before {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 5px,
+    transparent 5px 9px
+  );
+}
+
+.fit-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  margin: 0 0 0 auto;
+  font: 10px var(--mono);
+}
+
+.fit-note strong {
+  padding: 3px 8px;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 11px;
+}
+
+.fit-note span {
+  color: var(--muted);
+}
+
 .degree-chart {
   width: 100%;
   min-height: 480px;
@@ -497,6 +569,25 @@ h2 {
   stroke-width: 1.5;
 }
 
+.binned-line {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2;
+}
+
+.binned-marker {
+  fill: var(--orange);
+  stroke: var(--paper);
+  stroke-width: 1.5;
+}
+
+.powerlaw-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-dasharray: 6 5;
+  stroke-width: 1.6;
+}
+
 .chart-foot {
   display: flex;
   justify-content: space-between;
@@ -504,6 +595,50 @@ h2 {
   color: var(--muted);
   border-top: 1px solid var(--line);
   font: 10px var(--mono);
+}
+
+.binning-explainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.binning-explainer article {
+  padding: 30px 26px;
+  background: var(--ink);
+}
+
+.binning-explainer h3 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.binning-explainer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.binning-explainer em {
+  color: var(--lime);
+  font-style: normal;
+  font-family: var(--mono);
+}
+
+.binning-warning {
+  background: var(--orange) !important;
+}
+
+.binning-warning p {
+  color: rgba(17, 16, 15, 0.78);
+}
+
+.binning-warning em {
+  color: var(--ink);
 }
 
 .network-section {
@@ -834,13 +969,18 @@ footer p {
     border-right: 0;
   }
 
-  .method-grid {
+  .method-grid,
+  .binning-explainer {
     grid-template-columns: 1fr 1fr;
   }
 
   .method-grid article {
     padding-left: 20px;
     border-bottom: 1px solid var(--line);
+  }
+
+  .fit-note {
+    margin-left: 0;
   }
 
   .network-toolbar {
@@ -858,7 +998,8 @@ footer p {
   }
 
   .metrics,
-  .method-grid {
+  .method-grid,
+  .binning-explainer {
     grid-template-columns: 1fr;
   }
 
