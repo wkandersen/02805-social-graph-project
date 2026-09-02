@@ -1,1 +1,173 @@
-hello world
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Marvel Graph / playground</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+		:root { --ink:#17221e; --paper:#f3f0e8; --cream:#fbfaf6; --acid:#d9f06b; --coral:#e96d51; --muted:#788079; --line:#d8d6cc; }
+		* { box-sizing:border-box; }
+		body { margin:0; color:var(--ink); background:var(--paper); font-family:'Space Grotesk',sans-serif; }
+		.shell { max-width:1500px; margin:auto; padding:24px 34px 42px; }
+		header { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; border-bottom:1px solid var(--ink); padding-bottom:22px; }
+		.kicker, .mono, .label { font-family:'DM Mono',monospace; text-transform:uppercase; letter-spacing:.08em; font-size:11px; }
+		.kicker { color:var(--coral); margin-bottom:12px; }
+		h1 { font-size:clamp(38px,5vw,76px); line-height:.9; letter-spacing:-.055em; margin:0; max-width:690px; font-weight:600; }
+		h1 em { color:var(--coral); font-style:normal; }
+		.intro { max-width:360px; margin:0; line-height:1.45; font-size:14px; }
+		.status { margin-top:18px; display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border:1px solid var(--line); background:var(--cream); }
+		.dot { width:7px; height:7px; background:var(--coral); border-radius:50%; }
+		.stats { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--ink); }
+		.stat { padding:18px 18px 16px 0; border-right:1px solid var(--line); margin-right:18px; }
+		.stat:last-child { border:0; }
+		.stat strong { display:block; font-size:30px; letter-spacing:-.05em; margin-top:9px; }
+		.stat span:last-child { color:var(--muted); font-size:12px; }
+		main { display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:24px; margin-top:24px; }
+		.toolbar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
+		input, select, button { font:inherit; border:1px solid var(--ink); background:var(--cream); color:var(--ink); padding:10px 12px; }
+		input { min-width:220px; flex:1; }
+		select { min-width:150px; }
+		button { cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; }
+		button:hover, button.active { background:var(--acid); }
+		.stage { background:#1d2823; border:1px solid var(--ink); position:relative; min-height:590px; overflow:hidden; }
+		canvas { width:100%; height:590px; display:block; cursor:grab; }
+		canvas:active { cursor:grabbing; }
+		.legend { position:absolute; left:16px; bottom:14px; color:#dfe5dc; display:flex; gap:16px; font-size:11px; align-items:center; }
+		.legend i { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; background:var(--acid); }
+		.legend i.hub { background:var(--coral); }
+		aside { border-left:1px solid var(--ink); padding-left:24px; }
+		aside h2 { font-size:24px; letter-spacing:-.04em; margin:0 0 18px; }
+		.panel { border-top:1px solid var(--ink); padding-top:16px; margin-top:20px; }
+		.panel .label { color:var(--muted); margin-bottom:9px; }
+		#selectedName { font-size:28px; line-height:1; letter-spacing:-.045em; margin:0 0 10px; }
+		#selectedDescription { color:#59625c; font-size:13px; line-height:1.45; margin:0; }
+		.measure { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:13px; }
+		.measure b { font-family:'DM Mono',monospace; font-weight:500; }
+		.links { display:flex; flex-wrap:wrap; gap:6px; }
+		.links a { color:var(--ink); border-bottom:1px solid var(--coral); font-size:12px; text-decoration:none; }
+		.analysis { margin-top:24px; border-top:1px solid var(--ink); padding-top:20px; }
+		.analysis-head { display:flex; justify-content:space-between; gap:20px; align-items:flex-end; margin-bottom:12px; }
+		.analysis h2 { font-size:28px; letter-spacing:-.045em; margin:0; }
+		.analysis-copy { color:var(--muted); font-size:12px; line-height:1.4; max-width:390px; margin:0; }
+		.analysis-grid { display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:24px; }
+		.chart-wrap { background:var(--cream); border:1px solid var(--ink); padding:12px; }
+		#distribution { width:100%; height:310px; display:block; }
+		.analysis-controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+		.analysis-controls select { min-width:125px; padding:8px 10px; font-size:12px; }
+		.leaderboard { border-top:1px solid var(--ink); }
+		.leader-row { display:grid; grid-template-columns:25px 1fr auto; gap:8px; padding:10px 0; border-bottom:1px solid var(--line); font-size:12px; align-items:center; }
+		.leader-row a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--coral); }
+		.leader-row b { font-family:'DM Mono',monospace; font-weight:500; }
+		.structure-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); }
+		.structure-item { padding:16px 18px 14px 0; border-right:1px solid var(--line); margin-right:18px; }
+		.structure-item:last-child { border:0; }
+		.structure-item strong { display:block; font-size:30px; letter-spacing:-.05em; margin:9px 0 5px; }
+		.structure-item span { color:var(--muted); font-size:12px; line-height:1.35; }
+		.community-list { display:grid; grid-template-columns:repeat(4,1fr); gap:8px 18px; border-top:1px solid var(--ink); padding-top:14px; }
+		.community-row { display:flex; gap:8px; align-items:center; min-width:0; font-size:12px; }
+		.community-row i { flex:0 0 9px; width:9px; height:9px; border-radius:50%; }
+		.community-row span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+		.community-row b { margin-left:auto; font-family:'DM Mono',monospace; font-weight:500; }
+		.near-graph .community-list { grid-template-columns:1fr; gap:7px; border-top:0; padding-top:0; max-height:310px; overflow:auto; }
+		footer { margin-top:24px; display:flex; justify-content:space-between; border-top:1px solid var(--ink); padding-top:12px; color:var(--muted); font-size:11px; }
+		@media (max-width:850px) { .shell{padding:18px;} header{display:block;} .intro{margin-top:24px;} main,.analysis-grid,.structure-grid,.community-list{grid-template-columns:1fr;} aside{border-left:0;border-top:1px solid var(--ink);padding:22px 0 0;} .stage, canvas{min-height:480px;height:480px;} }
+		@media (max-width:530px) { .stats{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border:0;} .stat{margin:0 10px 0 0;} .toolbar>*{width:100%;} input{min-width:0;} }
+	</style>
+</head>
+<body>
+	<div class="shell">
+		<header>
+			<div><div class="kicker">02806 / social graph playground</div><h1>Marvel, mapped<br>as a <em>universe.</em></h1></div>
+			<div><p class="intro">303 characters from Wikipedia's Marvel Comics superheroes category. Explore the links between their pages and find the hubs holding this dense little world together.</p><div class="status"><span class="dot"></span><span class="mono" id="loadStatus">loading dataset</span></div></div>
+		</header>
+		<section class="stats" aria-label="Graph statistics">
+			<div class="stat"><span class="label">characters</span><strong id="nodeCount">—</strong><span>full node set</span></div>
+			<div class="stat"><span class="label">page links</span><strong id="edgeCount">—</strong><span id="edgeLabel">directed references</span></div>
+			<div class="stat"><span class="label" id="hubLabel">largest directed hub</span><strong id="hubName">—</strong><span id="hubDegree">waiting for graph</span></div>
+			<div class="stat"><span class="label">isolates</span><strong id="isolateCount">—</strong><span>no links in or out</span></div>
+		</section>
+		<main>
+			<section>
+				<div class="toolbar"><select id="graphMode" aria-label="Graph direction"><option value="directed">directed graph</option><option value="undirected">undirected graph</option></select><input id="search" type="search" placeholder="Search characters..." aria-label="Search characters"><select id="metric" aria-label="Size nodes by"><option value="degree">size by total degree</option><option value="pagerank">size by influence</option><option value="uniform">uniform node size</option></select><select id="nodeFilter" aria-label="Filter characters"><option value="all">show all characters</option><option value="isolates">isolates only</option></select><button id="reset">reset view</button></div>
+				<div class="stage"><canvas id="graph" aria-label="Interactive network graph"></canvas><div class="legend"><span><i></i>community color</span><span><i class="hub"></i>high degree</span><span class="mono">click to inspect</span></div></div>
+			</section>
+			<aside>
+				<h2>Node details</h2>
+				<div class="panel"><div class="label">selected character</div><h3 id="selectedName">Select a node</h3><p id="selectedDescription">Click any point in the graph to inspect its position in the network.</p></div>
+				<div class="panel"><div class="measure"><span>total degree</span><b id="selectedDegree">—</b></div><div class="measure"><span>links out</span><b id="selectedOut">—</b></div><div class="measure"><span>links in</span><b id="selectedIn">—</b></div><div class="measure"><span>influence score</span><b id="selectedRank">—</b></div></div>
+				<div class="panel"><div class="label">outgoing links</div><div class="links" id="selectedLinks"><span class="mono">none selected</span></div></div>
+				<div class="panel near-graph"><div class="label">community lookup</div><div class="community-list" id="communityList"><span class="mono">loading communities</span></div></div>
+			</aside>
+		</main>
+		<section class="analysis" aria-label="Degree distribution analysis">
+			<div class="analysis-head"><div><div class="kicker">distribution / graph.py</div><h2>How hub-heavy is the universe?</h2></div><p class="analysis-copy">Degree distributions reveal whether a few characters hold most of the network's attention. The binned view groups sparse high-degree values without hiding the raw observations.</p></div>
+			<div class="analysis-controls"><select id="degreeView" aria-label="Degree type"><option value="in">in-degree</option><option value="out">out-degree</option><option value="undirected">undirected degree</option></select><select id="dataView" aria-label="Data view"><option value="both">raw + binned</option><option value="raw">raw</option><option value="binned">binned</option></select><select id="xScale" aria-label="X axis scale"><option value="linear">linear x-axis</option><option value="log">log x-axis</option></select><select id="yScale" aria-label="Y axis scale"><option value="linear">linear y-axis</option><option value="log">log y-axis</option></select></div>
+			<div class="analysis-grid"><div class="chart-wrap"><canvas id="distribution" aria-label="Degree distribution chart"></canvas></div><div><div class="label">top five / <span id="leaderMetric">in-degree</span></div><div class="leaderboard" id="leaderboard"><span class="mono">loading analysis</span></div></div></div>
+		</section>
+		<section class="analysis structure-analysis" aria-label="Network structure analysis">
+			<div class="analysis-head"><div><div class="kicker">structure / load_data.py</div><h2>How is the network held together?</h2></div><p class="analysis-copy">Connectivity and reciprocity show whether the characters form one shared world and whether their Wikipedia pages link to each other in both directions.</p></div>
+			<div class="structure-grid">
+				<div class="structure-item"><div class="label" id="componentLabel">weak components</div><strong id="componentCount">—</strong><span>separate groups in the current view</span></div>
+				<div class="structure-item"><div class="label">largest component</div><strong id="largestComponent">—</strong><span>characters in the main connected group</span></div>
+				<div class="structure-item"><div class="label" id="reciprocityLabel">mutual links</div><strong id="reciprocity">—</strong><span id="reciprocityNote">directed links with a return link</span></div>
+				<div class="structure-item"><div class="label">network density</div><strong id="density">—</strong><span id="densityNote">share of all possible directed links</span></div>
+			</div>
+		</section>
+		<footer><span class="mono">WEEK 01 / FROZEN SNAPSHOT / 26 AUG 2026</span><span class="mono">data: Wikipedia category links</span></footer>
+	</div>
+	<script>
+		const canvas = document.getElementById('graph'), ctx = canvas.getContext('2d');
+		let nodes = [], edges = [], selected = null, query = '', metric = 'degree', nodeFilter = 'all', graphMode = 'directed', graphStats = {}, communityInfo = [];
+		const communityColors = ['#d9f06b','#e96d51','#6fc7b8','#f2b84b','#8fa7e8','#d28bd2','#83c96d','#ef8f9f','#72a9d8','#d9a35f'];
+		const byId = new Map();
+		const fmt = n => n.toLocaleString('en-US');
+		function parseTSV(text) { return text.split(/\r?\n/).filter(line => line && !line.startsWith('#')).map(line => line.split('\t')); }
+		function rankGraph() { nodes.forEach(n => { n.influence = 1 / nodes.length; }); for (let pass=0; pass<30; pass++) { const next = new Map(nodes.map(n => [n.id, .15 / nodes.length])); nodes.forEach(n => { const share = .85 * n.influence / Math.max(1, n.out.length); n.out.forEach(id => next.set(id, next.get(id) + share)); }); nodes.forEach(n => n.influence = next.get(n.id)); } }
+		async function fetchDataFile(fileName) {
+			const paths = ['graph-data.json', '../docs/graph-data.json', '../data/' + fileName, 'data/' + fileName];
+			for (const path of paths) {
+				const response = await fetch(path);
+				if (response.ok) return { path, text: await response.text() };
+			}
+			throw new Error('Generated graph data not found. Run: python load_data.py');
+		}
+		async function loadData() {
+			const nodeFile = await fetchDataFile('week1_nodes.tsv');
+			let nodeRows, edgeRows;
+			if (nodeFile.path.endsWith('.json')) {
+				const data = JSON.parse(nodeFile.text);
+				graphStats = data.stats || {};
+				communityInfo = graphStats.communities || [];
+				nodeRows = data.nodes.map(row => [row.node_id, row.name, row.description || '', row.url || '', row.community_id]);
+				edgeRows = data.edges.map(row => [row.source, row.target]);
+			} else {
+				const edgeFile = await fetchDataFile('week1_edges.tsv');
+				nodeRows = parseTSV(nodeFile.text).slice(1); edgeRows = parseTSV(edgeFile.text).slice(1);
+			}
+			nodes = nodeRows.map(row => ({id:row[0], name:row[1], url:row[3], description:row[2] || '', community_id:row[4] ?? 0, out:[], in:[], x:Math.random(), y:Math.random()})); nodes.forEach(n => byId.set(n.id,n));
+			edgeRows.forEach(row => { const a=byId.get(row[0]), b=byId.get(row[1]); if(a && b){ a.out.push(b.id); b.in.push(a.id); edges.push([a,b]); } });
+			nodes.forEach(n => { n.degree=n.out.length+n.in.length; }); rankGraph();
+			updateGraphStats(); document.getElementById('loadStatus').textContent='dataset loaded'; resize(); resetPositions(); renderGraph();
+			renderCommunities();
+		}
+		function renderCommunities(){ document.getElementById('communityList').innerHTML=communityInfo.map(community=>`<div class="community-row"><i style="background:${communityColors[community.id % communityColors.length]}"></i><span>${community.label}</span><b>${community.size}</b></div>`).join('') || '<span class="mono">community data unavailable</span>'; }
+		function degreeFor(n){ return graphMode==='directed' ? n.degree : new Set([...n.out,...n.in]).size; }
+		function updateGraphStats(){ const undirected=graphMode==='undirected'; const hub=[...nodes].sort((a,b)=>degreeFor(b)-degreeFor(a)||a.name.localeCompare(b.name))[0]; document.getElementById('nodeCount').textContent=fmt(nodes.length); document.getElementById('edgeCount').textContent=fmt(undirected ? graphStats.undirected_edges : graphStats.edges); document.getElementById('edgeLabel').textContent=undirected ? 'unique undirected connections' : 'directed references'; document.getElementById('hubLabel').textContent=undirected ? 'largest undirected hub' : 'largest directed hub'; document.getElementById('hubName').textContent=hub.name; document.getElementById('hubDegree').textContent=`${degreeFor(hub)} connections`; document.getElementById('isolateCount').textContent=nodes.filter(n=>degreeFor(n)===0).length; document.getElementById('componentLabel').textContent=undirected ? 'connected components' : 'weak components'; document.getElementById('componentCount').textContent=fmt(undirected ? graphStats.undirected_components : graphStats.weak_components); document.getElementById('largestComponent').textContent=fmt(undirected ? graphStats.undirected_largest_component : graphStats.largest_component) + ` / ${fmt(nodes.length)}`; document.getElementById('reciprocityLabel').textContent=undirected ? 'reciprocity' : 'mutual links'; document.getElementById('reciprocity').textContent=undirected ? 'n/a' : `${(graphStats.reciprocity * 100).toFixed(1)}%`; document.getElementById('reciprocityNote').textContent=undirected ? 'direction is ignored in this view' : 'directed links with a return link'; document.getElementById('density').textContent=`${((undirected ? graphStats.undirected_density : graphStats.density) * 100).toFixed(2)}%`; document.getElementById('densityNote').textContent=`share of all possible ${undirected ? 'undirected' : 'directed'} links`; }
+		function resize(){ const d=window.devicePixelRatio||1; canvas.width=canvas.clientWidth*d; canvas.height=canvas.clientHeight*d; ctx.setTransform(d,0,0,d,0,0); resizeDistribution(); if(nodes.length){ resetPositions(); renderGraph(); } }
+		function resetPositions(){ const w=canvas.clientWidth,h=canvas.clientHeight; nodes.forEach((n,i)=>{ const angle=i*2.39996, radius=Math.min(w,h)*(.13+.36*Math.sqrt(i/nodes.length)); n.x=w/2+Math.cos(angle)*radius; n.y=h/2+Math.sin(angle)*radius; }); }
+		function visible(n){ const matchesQuery=!query || n.name.toLowerCase().includes(query.toLowerCase()); const matchesFilter=nodeFilter==='all' || (nodeFilter==='isolates' && n.degree===0); return matchesQuery && matchesFilter; }
+		function renderGraph(){ const w=canvas.clientWidth,h=canvas.clientHeight; ctx.clearRect(0,0,w,h);
+			const displayEdges=graphMode==='directed' ? edges : [...new Map(edges.map(([a,b])=>[[a.id,b.id].sort().join('|'),[a,b]])).values()]; ctx.globalAlpha=.16; ctx.strokeStyle='#dfe5dc'; ctx.lineWidth=1; displayEdges.forEach(([a,b])=>{if(visible(a)&&visible(b)){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}); ctx.globalAlpha=1;
+			const max=metric==='pagerank'?Math.max(...nodes.map(n=>n.influence)):Math.max(...nodes.map(n=>n.degree)); nodes.forEach(n=>{ const active=visible(n), value=metric==='uniform'?1:(metric==='pagerank'?n.influence:max? n.degree/max:0); const r=metric==='uniform'?3.5:3.5+value*13; ctx.globalAlpha=active?1:.08;ctx.fillStyle=communityColors[(n.community_id || 0) % communityColors.length];ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fill();if(n.degree>35){ctx.strokeStyle='#e96d51';ctx.lineWidth=1;}if(n===selected){ctx.strokeStyle='#fbfaf6';ctx.lineWidth=2;ctx.stroke();} }); }
+		function showNode(n){ selected=n; document.getElementById('selectedName').textContent=n.name; document.getElementById('selectedDescription').textContent=n.description; document.getElementById('selectedDegree').textContent=n.degree; document.getElementById('selectedOut').textContent=n.out.length; document.getElementById('selectedIn').textContent=n.in.length; document.getElementById('selectedRank').textContent=n.influence.toFixed(4); document.getElementById('selectedLinks').innerHTML=n.out.slice(0,18).map(id=>`<a href="#" data-id="${id}">${byId.get(id).name}</a>`).join('') || '<span class="mono">none</span>'; document.querySelectorAll('#selectedLinks a').forEach(a=>a.onclick=e=>{e.preventDefault();showNode(byId.get(a.dataset.id));}); renderGraph(); }
+		const distributionCanvas=document.getElementById('distribution'), distributionCtx=distributionCanvas.getContext('2d');
+		function resizeDistribution(){ if(!distributionCanvas.clientWidth)return; const d=window.devicePixelRatio||1; distributionCanvas.width=distributionCanvas.clientWidth*d; distributionCanvas.height=distributionCanvas.clientHeight*d; distributionCtx.setTransform(d,0,0,d,0,0); drawDistribution(); }
+		function doublingBins(max){ const bins=[], edges=[1,2,3,4,5,6,7,8]; let lower=8,width=2; while(lower<=max){edges.push(lower+width);lower+=width;width*=2;} for(let i=0;i<edges.length-1;i++)bins.push([edges[i],edges[i+1]]); return bins; }
+		function drawDistribution(){ if(!nodes.length)return; const degreeType=document.getElementById('degreeView').value, dataType=document.getElementById('dataView').value, xScale=document.getElementById('xScale').value, yScale=document.getElementById('yScale').value; const values=nodes.map(n=>degreeType==='in'?n.in.length:degreeType==='out'?n.out.length:n.degree), shifted=values.map(value=>value+1), counts=new Map(); shifted.forEach(value=>counts.set(value,(counts.get(value)||0)+1)); const raw=[...counts].sort((a,b)=>a[0]-b[0]).map(([x,y])=>({x,y})); const binned=doublingBins(Math.max(...shifted)).map(([lower,upper])=>{let total=0;for(let value=lower;value<upper;value++)total+=counts.get(value)||0;return {x:Math.sqrt(lower*(upper-1)),y:total/(upper-lower),lower,upper};}).filter(point=>point.y>0); const width=distributionCanvas.clientWidth,height=distributionCanvas.clientHeight,pad={left:48,right:18,top:20,bottom:38}; distributionCtx.clearRect(0,0,width,height); distributionCtx.fillStyle='#fbfaf6';distributionCtx.fillRect(0,0,width,height); const points=[...raw,...binned], maxX=Math.max(...points.map(point=>point.x),2),maxY=Math.max(...points.map(point=>point.y),1), tx=value=>pad.left+(xScale==='log'?Math.log(value)/Math.log(maxX):value/maxX)*(width-pad.left-pad.right), ty=value=>height-pad.bottom-(yScale==='log'?Math.log(value)/Math.log(maxY):value/maxY)*(height-pad.top-pad.bottom); distributionCtx.strokeStyle='#d8d6cc';distributionCtx.lineWidth=1; distributionCtx.beginPath();distributionCtx.moveTo(pad.left,pad.top);distributionCtx.lineTo(pad.left,height-pad.bottom);distributionCtx.lineTo(width-pad.right,height-pad.bottom);distributionCtx.stroke(); distributionCtx.fillStyle='#788079';distributionCtx.font='10px DM Mono, monospace';distributionCtx.fillText('frequency',pad.left,11);distributionCtx.fillText('degree + 1',width-76,height-10); const drawPoint=point=>{distributionCtx.beginPath();distributionCtx.arc(tx(point.x),ty(point.y),3.5,0,Math.PI*2);distributionCtx.fill();}; if(dataType==='raw'||dataType==='both'){distributionCtx.fillStyle='#e96d51';raw.filter(point=>yScale==='linear'||point.y>0).forEach(drawPoint);} if(dataType==='binned'||dataType==='both'){distributionCtx.strokeStyle='#17221e';distributionCtx.lineWidth=1.5;distributionCtx.beginPath();binned.filter(point=>yScale==='linear'||point.y>0).forEach((point,index)=>{const x=tx(point.x),y=ty(point.y);index?distributionCtx.lineTo(x,y):distributionCtx.moveTo(x,y);});distributionCtx.stroke();distributionCtx.fillStyle='#d9f06b';binned.forEach(drawPoint);} document.getElementById('leaderMetric').textContent=degreeType==='in'?'in-degree':degreeType==='out'?'out-degree':'undirected degree'; const ranked=nodes.map((node,index)=>({node,value:values[index]})).sort((a,b)=>b.value-a.value||a.node.name.localeCompare(b.node.name)).slice(0,5); document.getElementById('leaderboard').innerHTML=ranked.map((entry,index)=>`<div class="leader-row"><span class="mono">0${index+1}</span><a href="#" data-id="${entry.node.id}">${entry.node.name}</a><b>${entry.value}</b></div>`).join(''); document.querySelectorAll('#leaderboard a').forEach(link=>link.onclick=event=>{event.preventDefault();showNode(byId.get(link.dataset.id));}); }
+		canvas.addEventListener('click', e=>{const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top; const hit=nodes.filter(visible).map(n=>[n,Math.hypot(n.x-x,n.y-y)]).sort((a,b)=>a[1]-b[1])[0];if(hit&&hit[1]<22)showNode(hit[0]);});
+		document.getElementById('graphMode').onchange=e=>{graphMode=e.target.value;updateGraphStats();renderGraph();}; document.getElementById('search').oninput=e=>{query=e.target.value;renderGraph();}; document.getElementById('metric').onchange=e=>{metric=e.target.value;renderGraph();}; document.getElementById('nodeFilter').onchange=e=>{nodeFilter=e.target.value;renderGraph();}; ['degreeView','dataView','xScale','yScale'].forEach(id=>document.getElementById(id).onchange=drawDistribution); document.getElementById('reset').onclick=()=>{query='';nodeFilter='all';document.getElementById('search').value='';document.getElementById('nodeFilter').value='all';selected=null;resetPositions();renderGraph();}; window.onresize=resize;
+		loadData().catch(error=>{console.error(error);document.getElementById('loadStatus').textContent='dataset unavailable';});
+	</script>
+</body>
+</html>
