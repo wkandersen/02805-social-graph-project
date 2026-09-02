@@ -527,6 +527,10 @@ h2 {
   font: 10px var(--mono);
 }
 
+.fit-note[hidden] {
+  display: none;
+}
+
 .fit-note strong {
   padding: 3px 8px;
   color: var(--ink);
@@ -599,7 +603,7 @@ h2 {
 
 .binning-explainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1px;
   margin-top: 1px;
   background: rgba(255, 255, 255, 0.14);

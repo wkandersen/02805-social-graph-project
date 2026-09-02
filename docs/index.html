@@ -204,14 +204,25 @@
               page is generated—turn both series on and look at the low-k end.
             </p>
           </article>
+          <article>
+            <h3>Why the fit starts at k<sub>min</sub></h3>
+            <p>
+              A power law is a claim about the <em>tail</em>, not the whole
+              distribution. The low-degree end is shaped by how thoroughly each
+              article happens to be written, and forcing a straight line
+              through it would drag the exponent toward whatever the bulk does.
+              So we scan candidate cut-offs and keep the one whose fitted tail
+              matches the data best, measured by KS distance.
+            </p>
+          </article>
           <article class="binning-warning">
             <h3>What we did not do</h3>
             <p>
-              We never fit a slope to the binned points. The exponent above is
-              a maximum-likelihood fit to the <em>raw</em> degrees above
-              k<sub>min</sub>, with k<sub>min</sub> chosen by minimising the KS
-              distance. Whether this really is a power law is a week-2 question;
-              here the line is a reference, not a verdict.
+              We never fit a slope to the binned points. The exponent is a
+              maximum-likelihood fit to the <em>raw</em> degrees above
+              k<sub>min</sub>. And a fitted line is not evidence: it will
+              happily fit data that is not a power law at all. Whether this one
+              really is one is a week-2 question.
             </p>
           </article>
         </div>

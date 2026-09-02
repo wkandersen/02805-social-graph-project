@@ -247,14 +247,16 @@ function updateFitNote(fit) {
   const note = document.querySelector("#fit-note");
   if (!state.powerLaw || !fit) {
     note.hidden = true;
+    note.replaceChildren();
     return;
   }
 
   note.hidden = false;
   note.innerHTML = `
     <strong>&alpha; = ${fit.alpha.toFixed(2)}</strong>
-    <span>fitted on raw degrees k &ge; ${fit.kMin} (${fit.tailCount} characters,
-    KS distance ${fit.ksDistance.toFixed(3)})</span>
+    <span>fitted on the ${fit.tailCount} characters with k &ge; ${fit.kMin};
+    below that the curve is not straight, so fitting there would invent an
+    exponent (KS distance ${fit.ksDistance.toFixed(3)})</span>
   `;
 }
 
