@@ -1,0 +1,727 @@
+{
+  "snapshot": "2026-08-26",
+  "nodes": 303,
+  "directedEdges": 1784,
+  "undirectedEdges": 1434,
+  "reciprocalPairs": 350,
+  "density": 0.03134220706838896,
+  "meanInDegree": 5.887788778877888,
+  "meanOutDegree": 5.887788778877888,
+  "meanUndirectedDegree": 9.465346534653465,
+  "inOutCorrelation": 0.49645334152326015,
+  "isolates": 17,
+  "giantComponent": 277,
+  "island": [
+    {
+      "id": "Backhand_(character)",
+      "name": "Backhand (character)"
+    },
+    {
+      "id": "Blackthorn_(character)",
+      "name": "Blackthorn (character)"
+    },
+    {
+      "id": "Radian_(Morituri)",
+      "name": "Radian (Morituri)"
+    },
+    {
+      "id": "Scaredycat",
+      "name": "Scaredycat"
+    },
+    {
+      "id": "Scatterbrain_(Morituri)",
+      "name": "Scatterbrain (Morituri)"
+    },
+    {
+      "id": "Shear_(character)",
+      "name": "Shear (character)"
+    },
+    {
+      "id": "Snapdragon_(Morituri)",
+      "name": "Snapdragon (Morituri)"
+    },
+    {
+      "id": "Toxyn",
+      "name": "Toxyn"
+    },
+    {
+      "id": "Vyking",
+      "name": "Vyking"
+    }
+  ],
+  "isolateNames": [
+    "Baymax",
+    "Bird-Brain (Marvel Comics)",
+    "Black Fox (Robert Paine)",
+    "Brain Drain (character)",
+    "Breeze Barton",
+    "Captain Midlands",
+    "Charcoal (comics)",
+    "Father Time (Marvel Comics)",
+    "Happy Sam Sawyer",
+    "Hellfire (J. T. Slade)",
+    "Illuminator (Marvel Comics)",
+    "Miracleman (character)",
+    "Ogre (Marvel Comics)",
+    "Sean and Chris",
+    "Solarman",
+    "Super Rabbit",
+    "Yo-Yo Rodriguez"
+  ],
+  "topIn": [
+    {
+      "id": "Spider-Man",
+      "name": "Spider-Man",
+      "degree": 106
+    },
+    {
+      "id": "Hulk",
+      "name": "Hulk",
+      "degree": 64
+    },
+    {
+      "id": "Wolverine_(character)",
+      "name": "Wolverine (character)",
+      "degree": 60
+    },
+    {
+      "id": "Doctor_Strange",
+      "name": "Doctor Strange",
+      "degree": 50
+    },
+    {
+      "id": "Deadpool",
+      "name": "Deadpool",
+      "degree": 33
+    },
+    {
+      "id": "She-Hulk",
+      "name": "She-Hulk",
+      "degree": 29
+    },
+    {
+      "id": "Scarlet_Witch",
+      "name": "Scarlet Witch",
+      "degree": 28
+    },
+    {
+      "id": "Black_Panther_(character)",
+      "name": "Black Panther (character)",
+      "degree": 27
+    },
+    {
+      "id": "Cyclops_(Marvel_Comics)",
+      "name": "Cyclops (Marvel Comics)",
+      "degree": 26
+    },
+    {
+      "id": "Luke_Cage",
+      "name": "Luke Cage",
+      "degree": 25
+    }
+  ],
+  "topOut": [
+    {
+      "id": "Betsy_Braddock",
+      "name": "Betsy Braddock",
+      "degree": 28
+    },
+    {
+      "id": "Cloak_and_Dagger_(characters)",
+      "name": "Cloak and Dagger (characters)",
+      "degree": 24
+    },
+    {
+      "id": "Adam_Warlock",
+      "name": "Adam Warlock",
+      "degree": 22
+    },
+    {
+      "id": "Venom_(character)",
+      "name": "Venom (character)",
+      "degree": 21
+    },
+    {
+      "id": "She-Hulk",
+      "name": "She-Hulk",
+      "degree": 20
+    },
+    {
+      "id": "U.S._Agent",
+      "name": "U.S. Agent",
+      "degree": 20
+    },
+    {
+      "id": "Deadpool",
+      "name": "Deadpool",
+      "degree": 19
+    },
+    {
+      "id": "Rachel_Summers",
+      "name": "Rachel Summers",
+      "degree": 19
+    },
+    {
+      "id": "Noh-Varr",
+      "name": "Noh-Varr",
+      "degree": 18
+    },
+    {
+      "id": "Doctor_Strange",
+      "name": "Doctor Strange",
+      "degree": 17
+    }
+  ],
+  "topUndirected": [
+    {
+      "id": "Spider-Man",
+      "name": "Spider-Man",
+      "degree": 106
+    },
+    {
+      "id": "Hulk",
+      "name": "Hulk",
+      "degree": 65
+    },
+    {
+      "id": "Wolverine_(character)",
+      "name": "Wolverine (character)",
+      "degree": 63
+    },
+    {
+      "id": "Doctor_Strange",
+      "name": "Doctor Strange",
+      "degree": 57
+    },
+    {
+      "id": "Deadpool",
+      "name": "Deadpool",
+      "degree": 41
+    },
+    {
+      "id": "She-Hulk",
+      "name": "She-Hulk",
+      "degree": 37
+    },
+    {
+      "id": "Phoenix_Force",
+      "name": "Phoenix (Guardians of the Galaxy)",
+      "degree": 32
+    },
+    {
+      "id": "Scarlet_Witch",
+      "name": "Scarlet Witch",
+      "degree": 32
+    },
+    {
+      "id": "Black_Panther_(character)",
+      "name": "Black Panther (character)",
+      "degree": 31
+    },
+    {
+      "id": "Venom_(character)",
+      "name": "Venom (character)",
+      "degree": 29
+    }
+  ],
+  "topInOutDifference": {
+    "in": {
+      "name": "Spider-Man",
+      "inDegree": 106,
+      "outDegree": 9
+    },
+    "out": {
+      "name": "Betsy Braddock",
+      "inDegree": 7,
+      "outDegree": 28
+    }
+  },
+  "distributions": {
+    "in": [
+      {
+        "degree": 0,
+        "count": 58,
+        "probability": 0.19141914191419143
+      },
+      {
+        "degree": 1,
+        "count": 41,
+        "probability": 0.1353135313531353
+      },
+      {
+        "degree": 2,
+        "count": 43,
+        "probability": 0.1419141914191419
+      },
+      {
+        "degree": 3,
+        "count": 28,
+        "probability": 0.0924092409240924
+      },
+      {
+        "degree": 4,
+        "count": 21,
+        "probability": 0.06930693069306931
+      },
+      {
+        "degree": 5,
+        "count": 22,
+        "probability": 0.07260726072607261
+      },
+      {
+        "degree": 6,
+        "count": 13,
+        "probability": 0.0429042904290429
+      },
+      {
+        "degree": 7,
+        "count": 10,
+        "probability": 0.033003300330033
+      },
+      {
+        "degree": 8,
+        "count": 7,
+        "probability": 0.0231023102310231
+      },
+      {
+        "degree": 9,
+        "count": 7,
+        "probability": 0.0231023102310231
+      },
+      {
+        "degree": 10,
+        "count": 7,
+        "probability": 0.0231023102310231
+      },
+      {
+        "degree": 11,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 12,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 13,
+        "count": 6,
+        "probability": 0.019801980198019802
+      },
+      {
+        "degree": 14,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 15,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 16,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 17,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 19,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 20,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 21,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 22,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 23,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 24,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 25,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 26,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 27,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 28,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 29,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 33,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 50,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 60,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 64,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 106,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      }
+    ],
+    "out": [
+      {
+        "degree": 0,
+        "count": 20,
+        "probability": 0.066006600660066
+      },
+      {
+        "degree": 1,
+        "count": 31,
+        "probability": 0.10231023102310231
+      },
+      {
+        "degree": 2,
+        "count": 37,
+        "probability": 0.12211221122112212
+      },
+      {
+        "degree": 3,
+        "count": 40,
+        "probability": 0.132013201320132
+      },
+      {
+        "degree": 4,
+        "count": 31,
+        "probability": 0.10231023102310231
+      },
+      {
+        "degree": 5,
+        "count": 21,
+        "probability": 0.06930693069306931
+      },
+      {
+        "degree": 6,
+        "count": 16,
+        "probability": 0.052805280528052806
+      },
+      {
+        "degree": 7,
+        "count": 14,
+        "probability": 0.0462046204620462
+      },
+      {
+        "degree": 8,
+        "count": 17,
+        "probability": 0.056105610561056105
+      },
+      {
+        "degree": 9,
+        "count": 14,
+        "probability": 0.0462046204620462
+      },
+      {
+        "degree": 10,
+        "count": 6,
+        "probability": 0.019801980198019802
+      },
+      {
+        "degree": 11,
+        "count": 12,
+        "probability": 0.039603960396039604
+      },
+      {
+        "degree": 12,
+        "count": 11,
+        "probability": 0.036303630363036306
+      },
+      {
+        "degree": 13,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 14,
+        "count": 9,
+        "probability": 0.0297029702970297
+      },
+      {
+        "degree": 15,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 16,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 17,
+        "count": 5,
+        "probability": 0.0165016501650165
+      },
+      {
+        "degree": 18,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 19,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 20,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 21,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 22,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 24,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 28,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      }
+    ],
+    "undirected": [
+      {
+        "degree": 0,
+        "count": 17,
+        "probability": 0.056105610561056105
+      },
+      {
+        "degree": 1,
+        "count": 18,
+        "probability": 0.0594059405940594
+      },
+      {
+        "degree": 2,
+        "count": 26,
+        "probability": 0.0858085808580858
+      },
+      {
+        "degree": 3,
+        "count": 31,
+        "probability": 0.10231023102310231
+      },
+      {
+        "degree": 4,
+        "count": 25,
+        "probability": 0.08250825082508251
+      },
+      {
+        "degree": 5,
+        "count": 21,
+        "probability": 0.06930693069306931
+      },
+      {
+        "degree": 6,
+        "count": 22,
+        "probability": 0.07260726072607261
+      },
+      {
+        "degree": 7,
+        "count": 18,
+        "probability": 0.0594059405940594
+      },
+      {
+        "degree": 8,
+        "count": 14,
+        "probability": 0.0462046204620462
+      },
+      {
+        "degree": 9,
+        "count": 12,
+        "probability": 0.039603960396039604
+      },
+      {
+        "degree": 10,
+        "count": 8,
+        "probability": 0.026402640264026403
+      },
+      {
+        "degree": 11,
+        "count": 8,
+        "probability": 0.026402640264026403
+      },
+      {
+        "degree": 12,
+        "count": 5,
+        "probability": 0.0165016501650165
+      },
+      {
+        "degree": 13,
+        "count": 5,
+        "probability": 0.0165016501650165
+      },
+      {
+        "degree": 14,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 15,
+        "count": 12,
+        "probability": 0.039603960396039604
+      },
+      {
+        "degree": 16,
+        "count": 5,
+        "probability": 0.0165016501650165
+      },
+      {
+        "degree": 17,
+        "count": 7,
+        "probability": 0.0231023102310231
+      },
+      {
+        "degree": 18,
+        "count": 7,
+        "probability": 0.0231023102310231
+      },
+      {
+        "degree": 19,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 20,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 21,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 22,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 24,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 25,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 26,
+        "count": 3,
+        "probability": 0.009900990099009901
+      },
+      {
+        "degree": 27,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 28,
+        "count": 4,
+        "probability": 0.013201320132013201
+      },
+      {
+        "degree": 29,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 31,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 32,
+        "count": 2,
+        "probability": 0.006600660066006601
+      },
+      {
+        "degree": 37,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 41,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 57,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 63,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 65,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      },
+      {
+        "degree": 106,
+        "count": 1,
+        "probability": 0.0033003300330033004
+      }
+    ]
+  }
+}
