@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="An interactive Week 1 data story about fame, storytelling, and the Marvel Wikipedia network."
+      content="A playable Week 2 investigation of models, null models, and the Marvel superhero network."
     />
-    <title>Marvel Linkverse · Week 1</title>
+    <title>Marvel Model Lab · Week 2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,357 +21,262 @@
   <body>
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Marvel Linkverse home">
-        <span class="wordmark-mark">ML</span>
-        <span>Marvel Linkverse</span>
-      </a>
+      <a class="wordmark" href="#top"><span class="wordmark-mark">M²</span>Model Lab</a>
       <nav aria-label="Page sections">
-        <a href="#question">Question</a>
-        <a href="#degrees">Degrees</a>
-        <a href="#network">Network</a>
-        <a href="#method">Method</a>
+        <a href="#arena">Arena</a>
+        <a href="#detective">Game</a>
+        <a href="#shuffle">Shuffle</a>
+        <a href="#friends">Friends</a>
       </nav>
-      <span class="edition">W01 / 2026</span>
+      <span class="edition">W02 / 2026</span>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">02805 · Social Graphs and Interactions</p>
-          <h1>Who talks about whom in the <em>Marvel universe?</em></h1>
+          <p class="eyebrow">02805 · Go Nuts · Week 2</p>
+          <h1>Can a fake network fool <em>you?</em></h1>
           <p class="lede">
-            We mapped every link between 303 Marvel superhero articles. The
-            result is not a map of friendship—it is a map of attention.
+            Four networks enter the lab. One is Marvel. Three are famous models.
+            Names are erased. Your job is to find reality—and discover which
+            ingredients every imitation misses.
           </p>
-          <a class="scroll-cue" href="#question">
-            Enter the network <span aria-hidden="true">↓</span>
-          </a>
+          <a class="primary-button" href="#detective">Start the detective game ↘</a>
         </div>
-        <div class="hero-orbit" aria-hidden="true">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="hero-node hero-node-a"></div>
-          <div class="hero-node hero-node-b"></div>
-          <div class="hero-node hero-node-c"></div>
-          <div class="hero-node hero-node-d"></div>
-          <span class="hero-number">303</span>
-          <span class="hero-label">heroes</span>
+        <div class="hero-console" aria-hidden="true">
+          <span class="scanline"></span>
+          <div class="console-label">IDENTITY: UNKNOWN</div>
+          <svg id="hero-network"></svg>
+          <div class="console-readout"><span>277</span> nodes <span>?</span> origin</div>
         </div>
       </section>
 
-      <section class="question section" id="question">
-        <div class="section-index">01</div>
+      <section class="question section">
+        <span class="section-index">01</span>
         <div class="section-intro">
-          <p class="eyebrow">Our question</p>
-          <h2>Does being talked about mean you talk about everyone else?</h2>
+          <div>
+            <p class="eyebrow">Our question</p>
+            <h2>What survives when we model Marvel?</h2>
+          </div>
           <p>
-            Each arrow goes from one Wikipedia article to another. Incoming
-            links measure <strong>attention received</strong>; outgoing links
-            measure how widely an article <strong>points outward</strong>.
-            Those sound related—but the network says they are different roles.
+            We compare the 277-character giant component with three networks of
+            similar size and density. Can random links, local shortcuts, or
+            preferential attachment reproduce its short paths, clustering, and
+            hubs at the same time?
           </p>
         </div>
-
-        <div class="metrics" aria-label="Network summary">
-          <article>
-            <span class="metric-value" data-stat="nodes">—</span>
-            <span class="metric-label">characters</span>
-          </article>
-          <article>
-            <span class="metric-value" data-stat="directedEdges">—</span>
-            <span class="metric-label">directed links</span>
-          </article>
-          <article>
-            <span class="metric-value" data-stat="density">—</span>
-            <span class="metric-label">of possible pairs</span>
-          </article>
-          <article>
-            <span class="metric-value" data-stat="isolates">—</span>
-            <span class="metric-label">isolated heroes</span>
-          </article>
+        <div class="hypothesis-strip">
+          <span>OUR BET</span>
+          <p>No single simple model will match all three fingerprints.</p>
+          <div class="fingerprints">
+            <i>short paths</i><i>triangles</i><i>giant hubs</i>
+          </div>
         </div>
+      </section>
 
-        <div class="comparison-grid">
-          <article class="character-card card-in">
+      <section class="arena section dark-section" id="arena">
+        <span class="section-index">02</span>
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">The model arena</p>
+            <h2>Turn the model dial.</h2>
+          </div>
+          <p>
+            Switch specimens and watch the same measurements respond. Node size
+            is degree. The layout is decoration; the readouts are data.
+          </p>
+        </div>
+        <div class="model-tabs" role="tablist" aria-label="Network model">
+          <button class="active" data-model="marvel">Marvel</button>
+          <button data-model="random">Erdős–Rényi</button>
+          <button data-model="smallWorld">Watts–Strogatz</button>
+          <button data-model="preferential">Barabási–Albert</button>
+        </div>
+        <div class="arena-grid">
+          <div class="specimen">
+            <div class="specimen-label">
+              <span id="model-code">SPECIMEN M</span>
+              <button id="rerun-layout" class="icon-button" title="Shake the layout">↻ shake</button>
+            </div>
+            <svg id="model-network" aria-label="Model network visualization"></svg>
+          </div>
+          <aside class="model-readout">
             <div>
-              <p class="card-kicker">Most attention received</p>
-              <h3 data-character="topInName">—</h3>
-              <p>
-                <strong data-character="topInIn">—</strong> incoming links,
-                but only <strong data-character="topInOut">—</strong> outgoing.
-              </p>
+              <p class="micro-label">Current specimen</p>
+              <h3 id="model-name">Marvel</h3>
+              <p id="model-recipe"></p>
             </div>
-            <div class="degree-badge">IN</div>
-          </article>
-          <article class="character-card card-out">
+            <div id="model-metrics" class="metric-stack"></div>
+          </aside>
+        </div>
+        <div class="ccdf-panel">
+          <div class="panel-heading">
             <div>
-              <p class="card-kicker">Most outward-looking article</p>
-              <h3 data-character="topOutName">—</h3>
-              <p>
-                <strong data-character="topOutOut">—</strong> outgoing links
-                and <strong data-character="topOutIn">—</strong> incoming.
-              </p>
+              <p class="micro-label">Degree fingerprint</p>
+              <h3>Who grows a tail?</h3>
             </div>
-            <div class="degree-badge">OUT</div>
-          </article>
-        </div>
-        <p class="comparison-note">
-          Across all 303 characters, in- and out-degree have a Pearson
-          correlation of <strong data-stat="correlation">—</strong>: related,
-          but far from interchangeable. Article length and editorial style can
-          shape out-degree; cultural prominence can attract in-degree.
-        </p>
-      </section>
-
-      <section class="degrees section dark-section" id="degrees">
-        <div class="section-index">02</div>
-        <div class="section-intro">
-          <p class="eyebrow">The degree fingerprint</p>
-          <h2>Most whisper. A few dominate the room.</h2>
-          <p>
-            Choose a degree and switch the axes. On linear axes the long tail
-            is almost invisible; log–log reveals just how far the hubs stretch.
-            Zero-degree nodes are shown at <em>k + 1</em> on logarithmic axes
-            so the isolates stay in the story. Add logarithmic binning to calm
-            the noisy tail, and a fitted power law to see how far a straight
-            line actually carries.
-          </p>
-        </div>
-
-        <div class="chart-panel">
-          <div class="chart-controls">
-            <div class="segmented" role="group" aria-label="Degree type">
-              <button class="active" data-degree="in">In-degree</button>
-              <button data-degree="out">Out-degree</button>
-              <button data-degree="undirected">Undirected</button>
-            </div>
-            <div class="toggle-row">
-              <label class="toggle">
-                <input id="log-toggle" type="checkbox" />
-                <span></span>
-                Log–log
-              </label>
-              <label class="toggle">
-                <input id="bin-toggle" type="checkbox" />
-                <span></span>
-                Binning
-              </label>
-              <label class="toggle">
-                <input id="powerlaw-toggle" type="checkbox" />
-                <span></span>
-                Power law
-              </label>
-            </div>
-          </div>
-          <div class="chart-legend">
-            <span class="key key-raw">raw P(k)</span>
-            <span class="key key-bin">logarithmic bins</span>
-            <span class="key key-fit">power-law fit</span>
-            <p id="fit-note" class="fit-note" hidden></p>
-          </div>
-          <div id="degree-chart" class="degree-chart" aria-live="polite"></div>
-          <div class="chart-foot">
-            <span>Each dot is one observed degree value</span>
-            <span id="axis-note">x = degree k · y = P(k)</span>
-          </div>
-        </div>
-
-        <div class="binning-explainer">
-          <article>
-            <h3>Why bin at all?</h3>
-            <p>
-              Out in the tail, most degrees are held by one or two characters,
-              so the raw dots scatter into noise. Binning averages over ranges
-              of <em>k</em> that widen as <em>k</em> grows, which recovers the
-              shape the noise was hiding.
-            </p>
-          </article>
-          <article>
-            <h3>Our scheme</h3>
-            <p>
-              Working in <em>u = k + 1</em>: width-1 bins for u = 1…7, then
-              doubling bins [8, 16), [16, 32), [32, 64), [64, 128). Every count
-              is divided by its bin width, and each wide bin is drawn at the
-              geometric mean of the integers it covers—never the arithmetic
-              midpoint, which would sit wrong on a log axis.
-            </p>
-          </article>
-          <article>
-            <h3>The check that matters</h3>
-            <p>
-              Where the bins are one unit wide, the binned curve must land
-              exactly on the raw dots. Our build script asserts this before the
-              page is generated—turn both series on and look at the low-k end.
-            </p>
-          </article>
-          <article>
-            <h3>Why the fit starts at k<sub>min</sub></h3>
-            <p>
-              A power law is a claim about the <em>tail</em>, not the whole
-              distribution. The low-degree end is shaped by how thoroughly each
-              article happens to be written, and forcing a straight line
-              through it would drag the exponent toward whatever the bulk does.
-              So we scan candidate cut-offs and keep the one whose fitted tail
-              matches the data best, measured by KS distance.
-            </p>
-          </article>
-          <article class="binning-warning">
-            <h3>What we did not do</h3>
-            <p>
-              We never fit a slope to the binned points. The exponent is a
-              maximum-likelihood fit to the <em>raw</em> degrees above
-              k<sub>min</sub>. And a fitted line is not evidence: it will
-              happily fit data that is not a power law at all. Whether this one
-              really is one is a week-2 question.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="network-section section" id="network">
-        <div class="section-index">03</div>
-        <div class="section-intro">
-          <p class="eyebrow">Explore all 303</p>
-          <h2>A living map of attention.</h2>
-          <p>
-            Drag, zoom, search, or select a node. Size encodes undirected
-            degree; colour encodes a detected community. Position comes from a
-            force simulation—it helps reveal structure, but it is decoration,
-            not data.
-          </p>
-        </div>
-
-        <div class="network-shell">
-          <div class="network-toolbar">
-            <label class="search">
-              <span>⌕</span>
-              <input
-                id="node-search"
-                type="search"
-                placeholder="Find a hero…"
-                autocomplete="off"
-              />
+            <label class="toggle">
+              <input id="all-models-toggle" type="checkbox" checked />
+              <span></span> compare all
             </label>
-            <div class="segmented light" role="group" aria-label="Network subset">
-              <button class="active" data-filter="giant">Giant component</button>
-              <button data-filter="all">All nodes</button>
-            </div>
-            <button id="reset-network" class="ghost-button">Reset view</button>
           </div>
-          <div class="network-stage">
-            <svg
-              id="network-graph"
-              role="img"
-              aria-label="Interactive Marvel Wikipedia link network"
-            ></svg>
-            <aside id="node-detail" class="node-detail">
-              <p class="card-kicker">Select a node</p>
-              <h3>The network is yours.</h3>
-              <p>Click any hero to inspect its incoming and outgoing links.</p>
-            </aside>
-          </div>
-          <p class="network-caption">
-            Lines show links without arrowheads for legibility. Direction is
-            preserved in the selected node’s statistics.
-          </p>
+          <div id="ccdf-chart"></div>
+          <div id="ccdf-legend" class="chart-legend"></div>
         </div>
       </section>
 
-      <section class="islands section">
-        <div class="section-index">04</div>
+      <section class="detective section" id="detective">
+        <span class="section-index">03</span>
         <div class="section-intro">
-          <p class="eyebrow">Beyond the giant component</p>
-          <h2>Nine heroes inhabit a universe of their own.</h2>
+          <div>
+            <p class="eyebrow">Playable experiment</p>
+            <h2>Null Model Detective.</h2>
+          </div>
           <p>
-            The giant component contains 277 characters. Outside it sits a
-            connected nine-character island from <em>Strikeforce: Morituri</em>,
-            plus 17 isolates. A category can put heroes in the same roster
-            without their articles ever linking to the wider network.
+            Five clues. Four suspects. Earn points for the right model and a
+            bonus for explaining which mechanism left the fingerprint.
           </p>
         </div>
-        <div class="island-layout">
-          <div id="island-names" class="island-names"></div>
-          <div class="island-stat">
-            <span>91%</span>
-            <p>of all nodes live in one giant component</p>
+        <div class="game-shell">
+          <div class="game-topbar">
+            <div><span>ROUND</span><strong id="round-count">1 / 5</strong></div>
+            <div><span>SCORE</span><strong id="score">0</strong></div>
+            <div><span>STREAK</span><strong id="streak">0</strong></div>
+            <button id="restart-game" class="ghost-button">New case</button>
           </div>
+          <div class="game-body">
+            <div class="clue-card">
+              <p class="micro-label" id="clue-type">Clue</p>
+              <h3 id="clue-question"></h3>
+              <div id="clue-visual" class="clue-visual"></div>
+              <button id="hint-button" class="hint-button">Use hint −25 pts</button>
+              <p id="hint-text" class="hint-text" hidden></p>
+            </div>
+            <div>
+              <div id="suspects" class="suspects"></div>
+              <div id="verdict" class="verdict" aria-live="polite" hidden></div>
+              <button id="next-round" class="primary-button dark" hidden>Next clue →</button>
+            </div>
+          </div>
+          <div class="game-progress"><span id="game-progress-bar"></span></div>
+        </div>
+      </section>
+
+      <section class="shuffle section orange-section" id="shuffle">
+        <span class="section-index">04</span>
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">The fair comparison</p>
+            <h2>Keep every degree. Scramble every relationship.</h2>
+          </div>
+          <p>
+            An Erdős–Rényi graph removes Marvel’s hubs, so it cannot tell us
+            whether hubs explain the triangles. Edge swaps preserve every
+            character’s degree and destroy only who connects to whom.
+          </p>
+        </div>
+        <div class="shuffle-lab">
+          <div class="shuffle-stage">
+            <div class="shuffle-status">
+              <span id="swap-count">0 swaps</span>
+              <strong>C = <b id="live-clustering">—</b></strong>
+            </div>
+            <svg id="shuffle-network" aria-label="Degree-preserving shuffled network"></svg>
+            <input id="shuffle-slider" type="range" min="0" max="5" value="0" step="1" />
+            <div class="slider-labels"><span>REAL</span><span>SCRAMBLED</span></div>
+          </div>
+          <div class="null-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="micro-label">120 shuffled worlds</p>
+                <h3>Could chance reach Marvel?</h3>
+              </div>
+            </div>
+            <div id="null-chart"></div>
+            <div class="null-result">
+              <div><strong id="z-score">—</strong><span>standard deviations away</span></div>
+              <div><strong id="p-value">—</strong><span>empirical p-value</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="friends section" id="friends">
+        <span class="section-index">05</span>
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">Bonus game</p>
+            <h2>Your friend is probably more popular.</h2>
+          </div>
+          <p>
+            Pick a random character, then one random neighbour. Because popular
+            heroes appear in many neighbour lists, the draw is degree-biased.
+            Run the experiment and see the friendship paradox accumulate.
+          </p>
+        </div>
+        <div class="friend-machine">
+          <div class="friend-cards">
+            <article id="person-card">
+              <p class="micro-label">You drew</p>
+              <h3>?</h3>
+              <strong>—</strong><span>connections</span>
+            </article>
+            <div class="versus"><span>VS</span><i>→</i></div>
+            <article id="friend-card">
+              <p class="micro-label">Their random friend</p>
+              <h3>?</h3>
+              <strong>—</strong><span>connections</span>
+            </article>
+          </div>
+          <button id="draw-friend" class="draw-button">DRAW A PAIR</button>
+          <div class="friend-scoreboard">
+            <div><strong id="friend-wins">0</strong><span>friend wins</span></div>
+            <div><strong id="person-wins">0</strong><span>person wins</span></div>
+            <div><strong id="friend-rate">—</strong><span>paradox rate</span></div>
+          </div>
+          <p id="friend-commentary" class="friend-commentary">
+            Press the button. Spider-Man is waiting in a lot of neighbour lists.
+          </p>
         </div>
       </section>
 
       <section class="surprise">
         <p class="eyebrow">What surprised us</p>
         <blockquote>
-          Fame and narration are not the same thing.
-          <span>Spider-Man is the network’s destination; Betsy Braddock’s article is its guide.</span>
+          Hubs explain <em>half</em> the clustering gap—not all of it.
+          <span>
+            Marvel falls from C = <b data-null="real">—</b> to
+            <b data-null="mean">—</b> after degree-preserving shuffles, yet the
+            remaining gap is still <b data-null="z">—</b>σ from chance.
+          </span>
         </blockquote>
       </section>
 
       <section class="method section" id="method">
-        <div class="section-index">05</div>
+        <span class="section-index">06</span>
         <div class="section-intro">
-          <p class="eyebrow">Method &amp; receipts</p>
-          <h2>What exactly did we measure?</h2>
+          <div>
+            <p class="eyebrow">Method &amp; receipts</p>
+            <h2>What did we keep?</h2>
+          </div>
         </div>
         <div class="method-grid">
-          <article>
-            <span>01</span>
-            <h3>Representation</h3>
-            <p>
-              A node is a Marvel superhero Wikipedia article. A directed,
-              unweighted edge A → B exists when A’s running article text links
-              to B. Redirects are resolved; navbox links are excluded.
-            </p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Construction</h3>
-            <p>
-              We added all 303 roster entries before the 1,784 edges, retaining
-              17 isolates. For components and density we collapsed reciprocal
-              arrows into 1,434 undirected pairs.
-            </p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Sanity checks</h3>
-            <p>
-              The script asserts n = 303, directed m = 1,784, undirected m =
-              1,434, and 17 isolates against the course data page before
-              generating this site.
-            </p>
-          </article>
-          <article class="human-check">
-            <span>04</span>
-            <h3>Human check — do this together</h3>
-            <p>
-              Open Spider-Man’s row in the edge list and count a small sample
-              of incoming links by hand. Record who checked it and whether the
-              count agreed before sharing the site.
-            </p>
-          </article>
+          <article><span>01</span><h3>Representation</h3><p>A node is a superhero article. An undirected, unweighted edge exists when either article links to the other. We analyse the 277-node giant component.</p></article>
+          <article><span>02</span><h3>Models</h3><p>ER matches n and m. WS uses mean degree 10 and rewiring q = 0.2. BA adds five links per arriving node. Seeds are fixed for reproducibility.</p></article>
+          <article><span>03</span><h3>Null model</h3><p>Each sample performs three edge swaps per edge after burn-in. All node degrees are asserted unchanged. The p-value uses (extreme + 1)/(samples + 1).</p></article>
+          <article class="human-check"><span>04</span><h3>Human check</h3><p>Before sharing: choose one shuffled snapshot and verify by hand that Spider-Man’s degree is unchanged even though his neighbours differ.</p></article>
         </div>
         <p class="source-note">
-          Frozen snapshot: 26 August 2026 · Source:
-          <a href="https://sunelehmann.com/socialgraphs2026-web/data"
-            >02805 shared playground</a
-          >
-          · Analysis:
-          <a href="https://github.com/wkandersen/02806-social-graph-project"
-            >source repository</a
-          >
+          Frozen Marvel snapshot: 26 August 2026 · Generated by
+          <code>analyse_week2.py</code> ·
+          <a href="https://github.com/wkandersen/02806-social-graph-project">source repository ↗</a>
         </p>
       </section>
     </main>
 
     <footer>
-      <div>
-        <span class="wordmark-mark">ML</span>
-        <p>
-          Built by the 02805 Go Nuts group<br />
-          Markus · William · Kris
-        </p>
-      </div>
-      <p>Week 1 · Networks are choices, not just pictures.</p>
+      <div><span class="wordmark-mark">M²</span><p>Markus · William · Kris<br />02805 Go Nuts group</p></div>
+      <p>Week 2 · A model becomes useful when it can lose.</p>
     </footer>
   </body>
 </html>
