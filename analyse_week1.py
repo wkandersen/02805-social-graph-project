@@ -16,7 +16,7 @@ ZETA_CAP = 20_000
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
-OUTPUT = ROOT / "docs" / "data"
+OUTPUT = ROOT / "docs" / "week1" / "data"
 
 
 def read_nodes() -> list[dict[str, str]]:

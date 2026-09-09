@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Week 2 model console: identify Marvel among three network models, run a degree-preserving shuffle test, and sample the friendship paradox."
+    />
+    <title>Model Console · Week 2 · 02805</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#m1">Skip to the console</a>
+
+    <aside class="rail">
+      <div class="rail-top">
+        <a class="sigil" href="../" aria-label="All weeks">W2</a>
+        <p class="rail-title">Model<br />Console</p>
+      </div>
+      <nav class="rail-nav" aria-label="Console modules">
+        <a href="#m0" data-nav="m0"><i>00</i>Briefing</a>
+        <a href="#m1" data-nav="m1"><i>01</i>Specimen arena</a>
+        <a href="#m2" data-nav="m2"><i>02</i>Tail scope</a>
+        <a href="#m3" data-nav="m3"><i>03</i>Detective</a>
+        <a href="#m4" data-nav="m4"><i>04</i>Shuffle rig</a>
+        <a href="#m5" data-nav="m5"><i>05</i>Paradox draw</a>
+        <a href="#m6" data-nav="m6"><i>06</i>Spec sheet</a>
+      </nav>
+      <div class="rail-foot">
+        <div class="rail-readout">
+          <span>detective score</span>
+          <strong id="rail-score">0</strong>
+        </div>
+        <a class="rail-back" href="../">← all weeks</a>
+      </div>
+    </aside>
+
+    <main class="console">
+      <section class="module" id="m0">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>00 · Briefing</h2>
+          <span class="module-meta">02805 · go nuts · week 2</span>
+        </div>
+        <div class="module-body brief">
+          <div>
+            <p class="kicker">Models &amp; null models</p>
+            <h1>Four networks. <em>One is real.</em></h1>
+            <p class="lede">
+              We put the 277-character Marvel giant component next to three
+              famous models of the same size and density, then erase the labels.
+              Every instrument below asks the same question: which structures
+              can a simple mechanism manufacture, and which ones survive only in
+              the real thing?
+            </p>
+            <div class="targets">
+              <span class="target"><i>target</i>short paths</span>
+              <span class="target"><i>target</i>triangles</span>
+              <span class="target"><i>target</i>giant hubs</span>
+            </div>
+            <p class="wager">
+              <b>Our wager:</b> no single simple model matches all three at once.
+            </p>
+          </div>
+          <figure class="viewport small">
+            <svg id="hero-network" aria-label="The Marvel giant component"></svg>
+            <figcaption>Specimen M · 277 nodes · 1,421 undirected links · ⟨k⟩ = 10.3</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="module" id="m1">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>01 · Specimen arena</h2>
+          <span class="module-meta">select an input channel</span>
+        </div>
+        <div class="module-body">
+          <div class="channels" role="tablist" aria-label="Network model">
+            <button class="channel active" data-model="marvel"><i>CH 1</i>Marvel</button>
+            <button class="channel" data-model="random"><i>CH 2</i>Erdős–Rényi</button>
+            <button class="channel" data-model="smallWorld"><i>CH 3</i>Watts–Strogatz</button>
+            <button class="channel" data-model="preferential"><i>CH 4</i>Barabási–Albert</button>
+          </div>
+          <div class="arena">
+            <figure class="viewport">
+              <span class="viewport-tag" id="model-code">SPECIMEN M</span>
+              <button id="rerun-layout" class="tick-button">↻ re-seed layout</button>
+              <svg id="model-network" aria-label="Model network visualization"></svg>
+              <figcaption>Drag nodes, scroll to zoom. Position is decoration; the gauges are data.</figcaption>
+            </figure>
+            <div class="bench">
+              <p class="kicker">Channel readout</p>
+              <h3 id="model-name">Marvel</h3>
+              <p class="recipe" id="model-recipe"></p>
+              <div id="model-metrics" class="gauges"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module" id="m2">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>02 · Tail scope</h2>
+          <span class="module-meta">CCDF · P(K ≥ k) · no binning</span>
+        </div>
+        <div class="module-body">
+          <div class="scope-bar">
+            <p>
+              The complementary cumulative distribution uses every data point and
+              needs no bins. A heavy tail stays straight here; a Poisson tail
+              falls off a cliff.
+            </p>
+            <label class="switch">
+              <input id="all-models-toggle" type="checkbox" checked />
+              <span></span> overlay all channels
+            </label>
+          </div>
+          <div id="ccdf-chart" class="scope"></div>
+          <div id="ccdf-legend" class="legend"></div>
+        </div>
+      </section>
+
+      <section class="module" id="m3">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>03 · Null model detective</h2>
+          <span class="module-meta">5 clues · 4 suspects</span>
+        </div>
+        <div class="module-body">
+          <div class="meters">
+            <div class="meter"><span>clue</span><strong id="round-count">1 / 5</strong></div>
+            <div class="meter"><span>score</span><strong id="score">0</strong></div>
+            <div class="meter"><span>streak</span><strong id="streak">0</strong></div>
+            <button id="restart-game" class="tick-button">new case</button>
+          </div>
+          <div class="case">
+            <div class="slab">
+              <p class="kicker" id="clue-type">Clue</p>
+              <h3 id="clue-question"></h3>
+              <div id="clue-visual" class="evidence"></div>
+              <button id="hint-button" class="tick-button">unlock hint −25</button>
+              <p id="hint-text" class="hint" hidden></p>
+            </div>
+            <div class="interrogation">
+              <div id="suspects" class="keypad"></div>
+              <p class="kbd-hint">Press <kbd>1</kbd>–<kbd>4</kbd> to accuse, <kbd>N</kbd> for the next clue.</p>
+              <div id="verdict" class="verdict" aria-live="polite" hidden></div>
+              <button id="next-round" class="go-button" hidden>next clue →</button>
+            </div>
+          </div>
+          <div class="tape"><span id="game-progress-bar"></span></div>
+        </div>
+      </section>
+
+      <section class="module" id="m4">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>04 · Shuffle rig</h2>
+          <span class="module-meta">degree-preserving edge swaps</span>
+        </div>
+        <div class="module-body">
+          <p class="module-note">
+            An Erdős–Rényi baseline deletes Marvel's hubs, so it cannot tell us
+            whether hubs cause the triangles. Edge swaps keep every character's
+            degree exactly and destroy only who is connected to whom — the
+            baseline that asks the right question.
+          </p>
+          <div class="rig">
+            <figure class="viewport">
+              <div class="rig-readout">
+                <span id="swap-count">0 swaps</span>
+                <span>C = <b id="live-clustering">—</b></span>
+              </div>
+              <svg id="shuffle-network" aria-label="Degree-preserving shuffled network"></svg>
+              <div class="rig-controls">
+                <input
+                  id="shuffle-slider"
+                  type="range"
+                  min="0"
+                  max="5"
+                  value="0"
+                  step="1"
+                  aria-label="Number of edge swaps"
+                />
+                <div class="rig-scale"><span>real</span><span>scrambled</span></div>
+                <button id="run-sequence" class="tick-button">▶ run sequence</button>
+              </div>
+            </figure>
+            <div class="bench">
+              <p class="kicker">120 shuffled universes</p>
+              <h3>Could chance reach Marvel?</h3>
+              <div id="null-chart" class="scope short"></div>
+              <div class="gauges">
+                <div class="gauge wide"><span>distance from the null</span><strong id="z-score">—</strong></div>
+                <div class="gauge wide"><span>empirical p-value</span><strong id="p-value">—</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="finding">
+            <p class="kicker">What surprised us</p>
+            <p>
+              Hubs explain only <em>half</em> the clustering gap. Marvel falls
+              from C = <b data-null="real">—</b> to <b data-null="mean">—</b>
+              once degrees are held fixed and everything else is scrambled — yet
+              the survivor is still <b data-null="z">—</b>σ beyond chance. Swap
+              in a plain random graph and you would have credited the whole
+              surplus to the hubs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="module" id="m5">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>05 · Paradox draw</h2>
+          <span class="module-meta">degree-biased sampling</span>
+        </div>
+        <div class="module-body">
+          <p class="module-note">
+            Draw a random character, then one random neighbour of that
+            character. Popular heroes sit in many neighbour lists, so the second
+            draw is biased upward. Pull the handle enough times and the
+            friendship paradox appears on its own.
+          </p>
+          <div class="draw">
+            <div class="tiles">
+              <article class="tile" id="person-card">
+                <p class="kicker">You drew</p>
+                <h3>?</h3>
+                <strong>—</strong>
+                <span>connections</span>
+              </article>
+              <div class="arrow" aria-hidden="true"><span>friend of</span>→</div>
+              <article class="tile accent" id="friend-card">
+                <p class="kicker">Their random friend</p>
+                <h3>?</h3>
+                <strong>—</strong>
+                <span>connections</span>
+              </article>
+            </div>
+            <button id="draw-friend" class="go-button wide">draw a pair</button>
+            <div class="tally">
+              <div><strong id="friend-wins">0</strong><span>friend at least as popular</span></div>
+              <div><strong id="person-wins">0</strong><span>person more popular</span></div>
+              <div><strong id="friend-rate">—</strong><span>paradox rate</span></div>
+            </div>
+            <p id="friend-commentary" class="commentary">
+              Pull the handle. Spider-Man is waiting inside a lot of neighbour lists.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="module" id="m6">
+        <div class="module-head">
+          <span class="led" aria-hidden="true"></span>
+          <h2>06 · Spec sheet</h2>
+          <span class="module-meta">method &amp; receipts</span>
+        </div>
+        <div class="module-body">
+          <dl class="spec">
+            <div>
+              <dt>Representation</dt>
+              <dd>
+                A node is a Marvel superhero Wikipedia article. An undirected,
+                unweighted edge exists when either article links to the other.
+                All measurements run on the 277-node giant component.
+              </dd>
+            </div>
+            <div>
+              <dt>Models</dt>
+              <dd>
+                Erdős–Rényi matches n and m. Watts–Strogatz uses degree 10 with
+                rewiring q = 0.2. Barabási–Albert attaches 5 links per arriving
+                node. One fixed seed per model, so every number on this page is
+                one reproducible draw rather than an average.
+              </dd>
+            </div>
+            <div>
+              <dt>Null model</dt>
+              <dd>
+                120 samples, each applying three double-edge swaps per edge. The
+                degree sequence is asserted unchanged. The p-value is
+                (extreme + 1)/(samples + 1), so 120 shuffles can never report zero.
+              </dd>
+            </div>
+            <div>
+              <dt>Human check</dt>
+              <dd class="check">
+                Not done by the machine: pull one shuffled snapshot, confirm by
+                hand that Spider-Man still has 106 neighbours while the names in
+                that list have changed. Record who checked before publishing.
+              </dd>
+            </div>
+            <div>
+              <dt>Reproduce</dt>
+              <dd>
+                <code>uv run analyse_week2.py</code> rebuilds
+                <code>week2/data/week2.json</code> from the frozen snapshot of
+                26 August 2026.
+              </dd>
+            </div>
+          </dl>
+          <p class="colophon">
+            Markus · William · Kris ·
+            <a href="https://github.com/wkandersen/02806-social-graph-project">source repository ↗</a>
+            · <a href="../">all weeks</a>
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

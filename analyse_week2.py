@@ -14,7 +14,7 @@ import networkx as nx
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
-OUTPUT = ROOT / "docs" / "data" / "week2.json"
+OUTPUT = ROOT / "docs" / "week2" / "data" / "week2.json"
 SEED = 20260909
 NULL_SAMPLES = 120
 
