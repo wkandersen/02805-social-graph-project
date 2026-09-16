@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Who is Marvel's most under-credited broker? An interactive degree-preserving betweenness investigation."
+    />
+    <title>The Broker Bureau · Week 3 · 02805</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="mast">
+      <a class="bureau-mark" href="../" aria-label="All weeks">BB</a>
+      <p>case 03 / centrality desk</p>
+      <nav aria-label="Case sections">
+        <a href="#cover">Question</a>
+        <a href="#field">Evidence</a>
+        <a href="#dossier">Dossier</a>
+        <a href="#stress">Stress test</a>
+        <a href="#verdict">Verdict</a>
+      </nav>
+      <a class="all-weeks" href="../">all weeks ↗</a>
+      <span class="progress" aria-hidden="true"></span>
+    </header>
+
+    <main class="case-deck">
+      <section class="sheet cover-sheet" id="cover">
+        <div class="cover-copy">
+          <p class="stamp">DTU 02805 · go nuts · week 3</p>
+          <h1>Who is Marvel’s most <em>under-credited broker?</em></h1>
+          <p class="standfirst">
+            High betweenness may only mean high degree. We rewired Marvel
+            <strong>80 times</strong> while preserving every character’s number
+            of links, then asked whose brokerage refused to disappear.
+          </p>
+          <a class="turn-page" href="#field">Open the evidence <span>→</span></a>
+        </div>
+        <div class="cover-visual" aria-hidden="true">
+          <span class="thread t1"></span><span class="thread t2"></span>
+          <span class="thread t3"></span><span class="thread t4"></span>
+          <span class="pin p1"></span><span class="pin p2"></span>
+          <span class="pin p3"></span><span class="pin p4"></span>
+          <div class="seal">?</div>
+        </div>
+        <dl class="cover-facts">
+          <div><dt>articles</dt><dd data-summary="nodes">—</dd></div>
+          <div><dt>undirected links</dt><dd data-summary="edges">—</dd></div>
+          <div><dt>null universes</dt><dd data-summary="nullSamples">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="sheet evidence-sheet" id="field">
+        <div class="folio">
+          <p class="folio-no">01 / evidence field</p>
+          <h2>Fame on one axis.<br />Brokerage on the other.</h2>
+          <p>
+            Each dot is a character. Change the lens from observed
+            betweenness to a z-score against degree-preserving rewires.
+            Positive z means “more brokerage than this degree normally buys.”
+          </p>
+          <div class="lens-switch" role="group" aria-label="Scatter plot measure">
+            <button class="active" data-lens="betweenness">raw betweenness</button>
+            <button data-lens="surprise">surprise vs null</button>
+          </div>
+          <label class="lookup">
+            <span>Find a character</span>
+            <input id="character-search" list="character-list" placeholder="Try Hercules…" />
+            <datalist id="character-list"></datalist>
+          </label>
+          <p class="plot-note">Hover or click a dot to open its dossier. Log scales reveal the low-degree brokers.</p>
+        </div>
+        <figure class="evidence-field">
+          <div id="broker-scatter"></div>
+          <figcaption>
+            Degree and betweenness use the undirected 277-character giant
+            component. Zero betweenness is shown at a labelled floor.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="sheet dossier-sheet" id="dossier">
+        <div class="dossier-head">
+          <p class="folio-no">02 / live dossier</p>
+          <div>
+            <p class="stamp">selected subject</p>
+            <h2 id="subject-name">Loading…</h2>
+          </div>
+          <a id="subject-source" href="#" target="_blank" rel="noreferrer">Wikipedia file ↗</a>
+        </div>
+        <div class="dossier-grid">
+          <article class="portrait-card">
+            <div class="rank-disc"><strong id="subject-z">—</strong><span>σ above degree-null</span></div>
+            <p id="subject-reading">Calculating the evidence trail.</p>
+          </article>
+          <dl class="measure-file">
+            <div><dt>connections</dt><dd id="subject-degree">—</dd><span id="subject-degree-rank">—</span></div>
+            <div><dt>betweenness</dt><dd id="subject-between">—</dd><span id="subject-between-rank">—</span></div>
+            <div><dt>null expectation</dt><dd id="subject-null">—</dd><span>same degree, rewired</span></div>
+            <div><dt>stranded if removed</dt><dd id="subject-stranded">—</dd><span id="subject-components">—</span></div>
+          </dl>
+          <article class="contact-file">
+            <p class="stamp">highest-degree neighbours</p>
+            <div id="subject-neighbours"></div>
+          </article>
+          <article class="shortlist">
+            <p class="stamp">most surprising brokers</p>
+            <ol id="surprise-list"></ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="sheet stress-sheet" id="stress">
+        <div class="stress-copy">
+          <p class="folio-no">03 / stress test</p>
+          <h2>Now pull people out.</h2>
+          <p>
+            We ranked the untouched network once, removed characters in that
+            order, and tracked the largest surviving component. This tests
+            whether a centrality ranking actually identifies structural weak
+            points—not merely prestigious pages.
+          </p>
+          <div class="strategy-key">
+            <button class="active" data-strategy="betweenness"><i></i>betweenness first</button>
+            <button class="active" data-strategy="degree"><i></i>degree first</button>
+            <button data-strategy="closeness"><i></i>closeness first</button>
+            <button data-strategy="random"><i></i>random baseline</button>
+          </div>
+          <label class="removal-control">
+            <span>Remove <strong id="remove-count">20</strong> characters</span>
+            <input id="remove-slider" type="range" min="0" max="60" value="20" />
+          </label>
+          <div id="attack-readout" class="attack-readout"></div>
+        </div>
+        <figure class="stress-chart">
+          <div id="attack-chart"></div>
+          <figcaption>Fixed rankings from the original graph; random is the mean of 120 seeded orders.</figcaption>
+        </figure>
+      </section>
+
+      <section class="sheet verdict-sheet" id="verdict">
+        <div class="verdict-number">04</div>
+        <div class="verdict-copy">
+          <p class="stamp">case finding</p>
+          <h2><span id="winner-name">One character</span> brokers far more than their degree predicts.</h2>
+          <p id="winner-finding"></p>
+          <blockquote>
+            Degree asks who knows many people. Betweenness asks who controls
+            routes. The degree-preserving null is what turns that distinction
+            from a slogan into evidence.
+          </blockquote>
+        </div>
+        <dl class="method-file">
+          <div>
+            <dt>Representation</dt>
+            <dd>
+              A node is a Marvel superhero Wikipedia article. An undirected,
+              unweighted edge exists when either article links to the other.
+              Analysis uses the 277-node giant component.
+            </dd>
+          </div>
+          <div>
+            <dt>Null model</dt>
+            <dd>
+              80 sequential degree-preserving double-edge shuffles, three
+              swaps per edge between samples. The script asserts that every
+              node keeps exactly the same degree.
+            </dd>
+          </div>
+          <div>
+            <dt>Important limit</dt>
+            <dd>
+              Wikipedia links measure editorial attention, not friendship or
+              story-canon relationships. A high z-score identifies unusual
+              linking structure, not a causal social role.
+            </dd>
+          </div>
+          <div>
+            <dt>Human check before publishing</dt>
+            <dd class="human-check">
+              Pick one reported subject, count its links in the frozen edge
+              list, and inspect two neighbours on Wikipedia. Record the checker
+              and whether the “broker” interpretation survives.
+            </dd>
+          </div>
+          <div>
+            <dt>Reproduce</dt>
+            <dd><code>uv run analyse_week3.py</code> rebuilds this page’s JSON.</dd>
+          </div>
+        </dl>
+        <footer>
+          <span>Markus · William · Kris</span>
+          <a href="../">← all weeks</a>
+          <a href="https://github.com/wkandersen/02806-social-graph-project">source ↗</a>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
