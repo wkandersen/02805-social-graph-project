@@ -36,7 +36,7 @@
       <dl class="hero-stats">
         <div><dt>characters</dt><dd>303</dd></div>
         <div><dt>directed links</dt><dd>1,784</dd></div>
-        <div><dt>weeks shipped</dt><dd>3</dd></div>
+        <div><dt>weeks shipped</dt><dd>4</dd></div>
       </dl>
     </header>
 
@@ -44,7 +44,31 @@
       <section class="weeks">
         <h2 class="section-title">The weeks</h2>
 
-        <a class="week-card current" href="week3/">
+        <a class="week-card current" href="week4/">
+          <span class="week-number">04</span>
+          <div class="week-body">
+            <p class="week-kicker">Communities &amp; weighted ties <i>latest</i></p>
+            <h3>Does weight rewrite philosophical history?</h3>
+            <p>
+              Follow 1,374 philosophers between unweighted and weighted
+              Louvain maps, inspect the people who cross borders, and test the
+              story against seeds and shuffled weights.
+            </p>
+            <ul class="week-tags">
+              <li>Louvain</li>
+              <li>weighted communities</li>
+              <li>NMI</li>
+              <li>weight-shuffle null</li>
+            </ul>
+            <p class="week-finding">
+              Real strong ties move community borders, but preserve the
+              topological map better than arbitrary placements of the same weights.
+            </p>
+          </div>
+          <span class="week-go">Open <i aria-hidden="true">→</i></span>
+        </a>
+
+        <a class="week-card" href="week3/">
           <span class="week-number">03</span>
           <div class="week-body">
             <p class="week-kicker">Centrality &amp; brokerage <i>latest</i></p>
@@ -135,7 +159,7 @@
             <h3>Data is generated, not hand-edited</h3>
             <p>
               Each week has a script at the repository root —
-              <code>analyse_week1.py</code> through <code>analyse_week3.py</code> —
+              <code>analyse_week1.py</code> through <code>analyse_week4.py</code> —
               that reads the frozen snapshot in <code>data/</code> and writes
               the JSON its page consumes.
             </p>
@@ -153,7 +177,7 @@
             <span>04</span>
             <h3>Run it yourself</h3>
             <p>
-              <code>uv run analyse_week3.py</code> regenerates the latest data, and
+              <code>uv run analyse_week4.py</code> regenerates the latest data, and
               serving the <code>docs/</code> folder over HTTP reproduces this
               site exactly as published.
             </p>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="An interactive comparison of weighted and unweighted communities in Wikipedia's philosopher network."
+    />
+    <title>The Weight of Ideas · Week 4 · 02805</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Libre+Caslon+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="issue-bar">
+      <a class="issue-home" href="../">GN / 04</a>
+      <nav aria-label="Story sections">
+        <a href="#map">The map</a>
+        <a href="#people">Border cases</a>
+        <a href="#checks">Checks</a>
+        <a href="#method">Method</a>
+      </nav>
+      <span>23 September 2026 · Copenhagen</span>
+    </header>
+
+    <main>
+      <header class="front-page">
+        <div class="edition-line">
+          <span>Social Graphs &amp; Interactions</span>
+          <span>Communities / weights / stability</span>
+        </div>
+        <p class="rubric">The weekly philosophy review</p>
+        <h1>The weight<br />of <i>ideas</i></h1>
+        <div class="front-grid">
+          <p class="question">
+            Does counting repeated links rewrite the history of philosophy—or
+            make its existing schools harder to erase?
+          </p>
+          <p class="answer">
+            <strong>The answer is both, but mostly the latter.</strong>
+            Weighted and unweighted Louvain agree at <b data-value="crossNmi">—</b>
+            NMI. Yet real weights preserve the unweighted map better than
+            shuffled weights do. Strong links move borders, while reinforcing
+            the large traditions already visible in topology.
+          </p>
+        </div>
+        <dl class="press-numbers">
+          <div><dt>philosophers</dt><dd data-value="nodes">—</dd></div>
+          <div><dt>article pairs</dt><dd data-value="edges">—</dd></div>
+          <div><dt>communities</dt><dd><span data-value="unweightedCommunities">—</span> → <span data-value="weightedCommunities">—</span></dd></div>
+          <div><dt>partition agreement</dt><dd data-value="crossNmi">—</dd></div>
+        </dl>
+      </header>
+
+      <section class="spread" id="map">
+        <header class="chapter-head">
+          <p>Figure 1 / the great rearrangement</p>
+          <h2>Follow 1,374 thinkers across two maps.</h2>
+          <p>
+            Left: every article pair counts once. Right: repeated links count
+            repeatedly. Each ribbon is a flow of philosophers; hover a block or
+            ribbon to isolate it. Names come from each group’s strongest hub,
+            not from historical ground truth.
+          </p>
+        </header>
+        <figure class="alluvial-frame">
+          <div class="map-labels">
+            <span>Unweighted topology</span>
+            <span>Weighted attention</span>
+          </div>
+          <div id="alluvial"></div>
+          <figcaption id="flow-caption">
+            Hover the map to read a transition.
+          </figcaption>
+        </figure>
+        <aside class="margin-note">
+          <span>What jumped out</span>
+          <p>
+            Marx becomes the hub of a separate weighted group. Aristotle’s
+            weighted group grows to <b id="aristotle-size">—</b>, absorbing much
+            of the early-modern bridge territory. Confucius’s group is the rare
+            perfectly stable block: all 75 stay together.
+          </p>
+        </aside>
+      </section>
+
+      <section class="people-desk" id="people">
+        <header>
+          <p>Figure 2 / border desk</p>
+          <h2>Who feels the weights most?</h2>
+          <p>
+            These are high-degree philosophers whose two communities overlap
+            least. Select a name to inspect the move. “Overlap” is the Jaccard
+            similarity between that philosopher’s two groups.
+          </p>
+        </header>
+        <div class="person-layout">
+          <ol id="mover-list" class="mover-list"></ol>
+          <article id="person-card" class="person-card" aria-live="polite">
+            <p class="card-kicker">Selected border case</p>
+            <h3>Loading…</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="checks-desk" id="checks">
+        <header class="chapter-head">
+          <p>Figure 3 / doubt before declaration</p>
+          <h2>A score is not a structure.</h2>
+        </header>
+        <div class="checks-grid">
+          <article>
+            <span class="check-no">01</span>
+            <h3>Stability across seeds</h3>
+            <p>
+              Ten runs per representation produce 45 pairwise comparisons.
+              Near-equal modularity does not imply the same partition.
+            </p>
+            <div id="stability-chart"></div>
+          </article>
+          <article>
+            <span class="check-no">02</span>
+            <h3>Shuffle the weights</h3>
+            <p>
+              We permuted the observed weights over the same links 30 times.
+              This keeps topology and the weight distribution, but destroys
+              which pairs are repeatedly linked.
+            </p>
+            <div id="null-chart"></div>
+          </article>
+        </div>
+        <p class="checks-verdict" id="checks-verdict"></p>
+      </section>
+
+      <section class="colophon" id="method">
+        <div>
+          <p class="rubric">How to read this issue</p>
+          <h2>One network, two questions.</h2>
+        </div>
+        <dl>
+          <div>
+            <dt>Representation</dt>
+            <dd>
+              A node is a pre-1900 philosopher’s Wikipedia article. An
+              undirected edge means either article links to the other in its
+              prose. Weight is the sum of links in both directions. We analyze
+              the 1,374-node giant component.
+            </dd>
+          </div>
+          <div>
+            <dt>Community method</dt>
+            <dd>
+              NetworkX Louvain, seed 0 for the displayed partitions. The
+              unweighted run treats every pair equally; the weighted run uses
+              repeated article links. Group names are labels based on the
+              highest-degree or highest-strength member—not discovered schools.
+            </dd>
+          </div>
+          <div>
+            <dt>Comparison</dt>
+            <dd>
+              NMI compares partitions (1 identical, 0 independent). Weighted
+              and unweighted modularity are shown separately and never treated
+              as directly comparable because they score different data.
+            </dd>
+          </div>
+          <div>
+            <dt>Null and limit</dt>
+            <dd>
+              The weight-permutation null asks whether the placement of strong
+              ties matters. It does not preserve each philosopher’s strength,
+              so it is a targeted test of weight placement, not a universal
+              weighted-network null.
+            </dd>
+          </div>
+          <div>
+            <dt>Human check before publishing</dt>
+            <dd class="human-check">
+              Open one border case, inspect its strongest links in the frozen
+              TSV, and read the linked Wikipedia passages. Record whether the
+              proposed move has historical meaning or is an editorial artifact.
+            </dd>
+          </div>
+          <div>
+            <dt>Reproduce</dt>
+            <dd><code>uv run analyse_week4.py</code> rebuilds the evidence file.</dd>
+          </div>
+        </dl>
+        <footer>
+          <span>Markus · William · Kris</span>
+          <a href="../">← every issue</a>
+          <a href="https://github.com/wkandersen/02806-social-graph-project">source ↗</a>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
