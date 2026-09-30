@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Week 5 go-nuts: we read the sentence behind every Marvel Wikipedia link, typed it as foe, ally, family or romance, and asked whether enemies live in other communities."
+    />
+    <title>Friends, Foes &amp; Family · Week 5 · Go Nuts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Martian+Mono:wght@300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reading-room">
+      <!-- ============================================================ STAGE -->
+      <aside class="stage" aria-label="Typed Marvel network">
+        <div class="stage-top">
+          <a class="gn-tag" href="../" title="All weeks">GN<span>05</span></a>
+          <div class="stage-title">
+            <strong>The typed Marvel network</strong>
+            <span id="stage-caption">303 pages · 1,784 links · every link read</span>
+          </div>
+          <a class="stage-back" href="../">all weeks ↗</a>
+        </div>
+
+        <div class="map-wrap">
+          <canvas id="map" aria-label="Force layout of the 303 Marvel characters, links coloured by relationship type"></canvas>
+          <div class="map-hover" id="map-hover" hidden></div>
+          <div class="map-find">
+            <input id="find" list="find-list" placeholder="find a character…" autocomplete="off" />
+            <datalist id="find-list"></datalist>
+          </div>
+          <div class="map-keys" id="map-keys"></div>
+          <p class="map-foot">position = force layout (decoration) · colour of a link = what the text says · halo = Louvain community</p>
+        </div>
+
+        <section class="tape" aria-live="polite">
+          <header class="tape-head">
+            <span class="tape-label">concordance tape</span>
+            <span id="tape-title">click a character on the map</span>
+            <button class="tape-clear" id="tape-clear" type="button" hidden>clear ✕</button>
+          </header>
+          <div class="tape-body" id="tape-body">
+            <p class="tape-empty">
+              Every link from A to B carries the sentences on A's page that name B. Pick a
+              character to read them — relationship words are highlighted in their type's colour,
+              the linked character is underlined, other character names are masked so
+              “Black <i>Widow</i>” never counts as a death.
+            </p>
+          </div>
+        </section>
+      </aside>
+
+      <!-- ============================================================ SCROLL -->
+      <main class="scroll">
+        <header class="beat beat-cover" data-beat="intro">
+          <p class="overline">02805 · go nuts · week 5 · the Marvel network gets language</p>
+          <h1>Friends, <span class="ink-foe">foes</span> <span class="amp">&amp;</span> <span class="ink-family">family</span></h1>
+          <p class="deck">
+            For four weeks a Marvel link meant one thing: page A mentions page B. This week the
+            pages got their text back, so we read the sentence behind every one of the 1,784
+            links and asked what kind of relationship it records. Then we asked the question
+            the network half could not: <em>do Marvel's enemies live in other communities?</em>
+          </p>
+          <dl class="tally">
+            <div><dt>links read</dt><dd data-k="found">1,613</dd></div>
+            <div><dt>sentences behind them</dt><dd data-k="sentences">5,745</dd></div>
+            <div><dt>lexicon words</dt><dd data-k="lexsize">—</dd></div>
+            <div><dt>checked by reading</dt><dd>60</dd></div>
+          </dl>
+          <p class="scroll-cue">scroll — the map on the left follows the story</p>
+        </header>
+
+        <!-- 1 -->
+        <section class="beat" data-beat="represent">
+          <p class="beat-no">01 · representation first</p>
+          <h2>What is a node, what is an edge, what is a <i>relationship</i>?</h2>
+          <p>
+            Nodes are the 303 character pages of the frozen 26 Aug 2026 snapshot. Edges are the
+            1,784 directed text links, A → B when the running text of A's article links to B.
+            New this week, each edge gets a <b>type</b>, read from A's text only. B's page is
+            allowed to disagree, and we measure how often it does (section 05).
+          </p>
+          <p>
+            Communities come from week-4 Louvain on the undirected, unweighted Marvel graph (1,434
+            pairs). We ran 20 seeds and kept the best: seed <span data-k="seed">5</span>,
+            <i>Q</i> = <span data-k="q">0.395</span>, <span data-k="ncomm">9</span> communities.
+            Their halos on the map are the “borders” we test against.
+          </p>
+          <ol class="comm-list" id="comm-list"></ol>
+        </section>
+
+        <!-- 2 -->
+        <section class="beat" data-beat="coverage">
+          <p class="beat-no">02 · a concordance with one line per edge</p>
+          <h2>Can we find B on A's page?</h2>
+          <p>
+            A rendered page keeps the anchor text but not the link, so we look for B by name:
+            its title, its English Wikidata aliases (frozen in <code>data/week5_aliases.json</code>),
+            and the real name in its blurb, e.g. <i>Wolverine</i> → Logan, James Howlett. An alias is only
+            used on A's page if <b>no other character A links to</b> and not A itself owns it.
+            Otherwise “Ghost Rider” on Danny Ketch's page would mostly find Danny Ketch.
+          </p>
+          <div class="ribbon">
+            <div class="ribbon-bar" id="coverage-bar"></div>
+            <ul class="ribbon-key">
+              <li><b data-k="found">1,613</b> links pinned to ≥1 sentence (<span data-k="foundpct">90.4%</span>)</li>
+              <li><b data-k="nomention">138</b> named nowhere in the prose, probably linked from a list, caption or piped alias we don't know</li>
+              <li><b data-k="noalias">33</b> with no usable name at all (every alias is shared with another linked page)</li>
+            </ul>
+          </div>
+          <p>
+            Sentences come from spaCy <code>en_core_web_sm</code>. Paragraph breaks are hard sentence
+            breaks, so a section heading never glues onto the next sentence. One thing
+            to try: search the map for <button class="linkish" data-focus="Anne_Weying">Anne Weying</button> and read her
+            link to Eddie Brock on the tape.
+          </p>
+        </section>
+
+        <!-- 3 -->
+        <section class="beat" data-beat="lexicon">
+          <p class="beat-no">03 · your lexicon, your network</p>
+          <h2>Four word lists turn links into relationships</h2>
+          <p>
+            Each sentence gives <b>one vote</b> to every type whose words appear in it. Other
+            characters' names are masked first. The link takes the type with most votes. A tie
+            is <span class="pill mixed">mixed</span>, and no votes means <span class="pill none">none</span>
+            (a mention with no relationship word). Everything below is recomputed
+            <b>in your browser</b> from the shipped sentences, so edit away.
+          </p>
+
+          <div class="lexbox" id="lexbox"></div>
+
+          <div class="dials">
+            <div class="dial">
+              <span class="dial-name">match on</span>
+              <div class="seg" id="mode-seg">
+                <button type="button" data-mode="lemma" class="on">lemma</button>
+                <button type="button" data-mode="surface">surface form</button>
+              </div>
+              <span class="dial-help">lemma: “fought” → fight · surface: only the exact word</span>
+            </div>
+            <div class="dial">
+              <span class="dial-name">window around B</span>
+              <div class="seg" id="window-seg">
+                <button type="button" data-window="" class="on">whole sentence</button>
+                <button type="button" data-window="10">±10</button>
+                <button type="button" data-window="5">±5</button>
+                <button type="button" data-window="3">±3 tokens</button>
+              </div>
+              <span class="dial-help">how close a relationship word must sit to B's name</span>
+            </div>
+            <button type="button" class="reset" id="reset-lex">reset to published settings</button>
+          </div>
+
+          <div class="label-strip" id="label-strip"></div>
+          <p class="parity" id="parity"></p>
+        </section>
+
+        <!-- 4 -->
+        <section class="beat beat-wide" data-beat="question">
+          <p class="beat-no">04 · the question</p>
+          <h2>Do foes cross community borders more than friends do?</h2>
+          <p>
+            For each type we count how many of its links join two characters in the <b>same</b>
+            Louvain community. Across all read links the share is <span data-k="overall">56.3%</span>.
+            As a null, we <b>shuffle the type labels</b> over the same 1,613 links: same network,
+            same communities, same number of foes, but no relation between type and community.
+            The grey band is the middle 95% of <span data-k="nperm">1,000</span> shuffles.
+          </p>
+          <figure class="plate">
+            <div id="fig-within"></div>
+            <figcaption id="within-caption"></figcaption>
+          </figure>
+          <div class="verdict" id="verdict"></div>
+          <p class="aside-note" id="seed-note"></p>
+        </section>
+
+        <!-- 5 -->
+        <section class="beat beat-wide" data-beat="window">
+          <p class="beat-no">05 · the result is a preprocessing choice</p>
+          <h2>Tighten the window and the foes come home</h2>
+          <p>
+            We reran the whole pipeline for 8 settings: lemma or surface form, and a window of
+            the whole sentence, ±10, ±5 or ±3 tokens around B's name. The <b>family</b> signal
+            holds under every setting and gets stronger when the window tightens. <b>Ally</b>
+            gets stronger too. The <b>foe</b> signal is the fragile one. It is borderline with
+            whole sentences and gone at ±5.
+          </p>
+          <figure class="plate">
+            <div id="fig-window"></div>
+            <figcaption>
+              z-score of each type's within-community share against the label-shuffle null
+              (400 shuffles per setting, precomputed in <code>analyse_week5.py</code>). Solid lines
+              use lemmas, dashed lines use surface forms. The shaded strip is |z| &lt; 2.
+            </figcaption>
+          </figure>
+          <p>
+            Why? With a whole sentence, “kill” and “battle” are often about <i>someone else</i>.
+            In “the Collective, who kills Guardian, Vindicator, Shaman, and Puck”, Guardian → Puck
+            becomes a feud between two teammates who die together. Crossover events kill across
+            teams, so this noise looks like border-crossing. A tight window keeps the
+            word next to the name, and the effect goes with the noise.
+          </p>
+          <figure class="plate">
+            <div id="fig-loo"></div>
+            <figcaption>
+              Leave one word out: how much the foe-minus-ally gap in within-community share moves when a
+              single lexicon word is deleted. <b>kill</b> and <b>fight</b> each move it by about
+              three percentage points, in opposite directions. The whole effect is only about seven.
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- 6 -->
+        <section class="beat" data-beat="recip">
+          <p class="beat-no">06 · two pages, one relationship?</p>
+          <h2>When A and B link each other, do they agree what they are?</h2>
+          <p>
+            350 pairs link both ways. In <span data-k="rtyped">110</span> of them both directions got
+            a single type. They agree in <span data-k="ragree">72</span> (<span data-k="rpct">65%</span>),
+            Cohen's κ = <span data-k="rkappa">0.47</span>. The biggest off-diagonal cell is
+            <b>foe ↔ ally</b>: one page calls it a fight, the other a team-up.
+          </p>
+          <figure class="plate plate-tight">
+            <div id="fig-recip"></div>
+            <figcaption>Unordered reciprocal pairs, published settings. The diagonal is agreement.</figcaption>
+          </figure>
+          <p>Some of those <b>frenemies</b>, click one to read both sides:</p>
+          <ul class="frenemies" id="frenemies"></ul>
+        </section>
+
+        <!-- 7 -->
+        <section class="beat" data-beat="fought">
+          <p class="beat-no">07 · who gets fought</p>
+          <h2>Most-fought is mostly most-linked</h2>
+          <p>
+            Spider-Man receives the most foe links, but he also receives the most links of any
+            kind (in-degree 106). Dividing by in-degree changes the order, a week-3 lesson in
+            new clothes. Sort the table both ways.
+          </p>
+          <div class="seg seg-small" id="fought-seg">
+            <button type="button" data-sort="count" class="on">raw foe links</button>
+            <button type="button" data-sort="share">foe share of in-links (in-degree ≥ 10)</button>
+          </div>
+          <ol class="fought" id="fought"></ol>
+          <p>
+            Link weight (week 4: how many times A links B) tells a quieter story. Links with
+            <b>no</b> relationship word are the ones linked only once. <b>Family</b> and
+            <b>romance</b> links are the most repeated.
+          </p>
+          <table class="wtable" id="wtable"></table>
+        </section>
+
+        <!-- 8 -->
+        <section class="beat beat-wide" data-beat="check">
+          <p class="beat-no">08 · the text wins</p>
+          <h2>Be the ground truth</h2>
+          <p>
+            A lexicon label is a measurement, and it needs a check. We froze a sample of 60 links
+            (<span data-k="checkeach">12</span> per lexicon label, drawn from the
+            <span data-k="checkeligible">1,354</span> links with at most 5 evidence sentences so that
+            you can read all of it). Label them yourself below. The lexicon's answer is hidden
+            until you commit.
+          </p>
+
+          <div class="bench-grid">
+            <div class="judge" id="judge"></div>
+            <div class="judge-score" id="judge-score"></div>
+          </div>
+
+          <h3>A first reading, done by the AI agent (not a human)</h3>
+          <p>
+            The agent that built this page read all 60 samples and labelled what A's text says
+            about A and B. That is <b>another model's reading, not ground truth</b>. It's here so
+            the error analysis isn't empty, and each of us re-labels it in the widget above
+            (labels in <code>data/week5_human_check.tsv</code>, column <code>human_label</code>).
+          </p>
+          <div class="agree-row" id="agent-agree"></div>
+          <div class="errors">
+            <article>
+              <h4>Wrong: the word belongs to someone else</h4>
+              <p>
+                <i>Isaiah Bradley → Luke Cage</i> is labelled romance because of “the <u>wedding</u> of
+                Storm and Black Panther”. <i>Mayday Parker → Scarlet Spider</i> is labelled family because
+                she “<u>adopted</u> the costume”. <i>Northstar → Hulk</i> is labelled family because of
+                “the <u>twins</u>” (Northstar and Aurora).
+              </p>
+            </article>
+            <article>
+              <h4>Subtly wrong: the word is right, the relation isn't</h4>
+              <p>
+                <i>Whizzer → Scarlet Witch</i> is family, but the Whizzer <i>erroneously</i> believes he is
+                the father. <i>Venom → Mayday Parker</i> is family, but only figuratively (“considering the
+                symbiote family”). Negation and belief are invisible to a word list.
+              </p>
+            </article>
+            <article>
+              <h4>Missed: the lexicon never had the word</h4>
+              <p>
+                <i>Northstar → Hercules</i>: “a sexual relationship” gets <span class="pill none">none</span>.
+                <i>Turbo → Nova</i>: “attacked by the Air Force while training with Nova” is a
+                foe label for a training partnership.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9 -->
+        <section class="beat" data-beat="close">
+          <p class="beat-no">09 · what we found, honestly</p>
+          <h2>Family stays home. Foes might travel.</h2>
+          <ul class="findings">
+            <li>
+              <b>Counted:</b> 1,613 of 1,784 Marvel links, each typed from the sentences on A's page
+              that name B, with a <span data-k="lexsize">—</span>-word lexicon and one vote per sentence.
+            </li>
+            <li>
+              <b>Compared against:</b> the same links with shuffled type labels (communities
+              fixed), eight preprocessing settings, 20 Louvain seeds, and a 60-link reading check.
+            </li>
+            <li>
+              <b>Holds up:</b> family links stay inside their community more than chance under
+              every setting (z from +2.3 to +4.2). Ally links do too once the window is ±5 tokens or tighter.
+            </li>
+            <li>
+              <b>Does not hold up:</b> “foes cross borders.” It is z ≈ −1.9 with whole sentences,
+              gone at ±5 tokens, moved by single words, and the foe label is right only about
+              half the time when read.
+            </li>
+          </ul>
+
+          <h3>What surprised us</h3>
+          <p>
+            We expected foes to be the loud signal and family the footnote. It came out the other
+            way around. Also, two pages that link each other only agree on what their relationship
+            is about two-thirds of the time. A link is symmetric in the undirected graph but not in
+            the prose.
+          </p>
+
+          <h3>What we checked in the raw text</h3>
+          <ul class="checked">
+            <li>Anne Weying's page literally contains “She is the ex-wife of Eddie Brock.” Her link is romance, and the tape shows the same sentence.</li>
+            <li>Guardian → Puck is labelled foe from “the Collective, who kills Guardian, Vindicator, Shaman, and Puck”. We confirmed the sentence is on Guardian's page, so the error is real and not a parsing bug.</li>
+            <li>The browser relabels all links with the same rule as Python and must reproduce the published label counts exactly. The badge in section 03 says whether it did.</li>
+          </ul>
+
+          <h3>Limitations</h3>
+          <p>
+            A word list sees words, not who does what to whom. We do not handle negation,
+            belief or time (“former ally”), and a dependency parse would fix much of the
+            third-party problem. Aliases from today's Wikidata are applied to an August snapshot.
+            The 60-link check was read by an AI agent and has not been re-read by a person yet.
+            The widget above is where that happens.
+          </p>
+
+          <footer class="colophon">
+            <p>
+              Reproduce: <code>uv run fetch_week5_aliases.py</code> (once), then
+              <code>uv run analyse_week5.py</code>. The script asserts n = 303, m = 1,784, 1,434 undirected pairs,
+              17 isolates, 350 reciprocal pairs and the page-length range 1,244–87,256 before writing
+              <code>docs/week5/data/week5.json</code>.
+            </p>
+            <p>
+              Markus · William · Kris · <a href="../">all weeks</a> ·
+              <a href="https://sunelehmann.com/socialgraphs2026-web/weeks/week5">course week 5 ↗</a> ·
+              <a href="https://github.com/wkandersen/02806-social-graph-project">source ↗</a>
+            </p>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

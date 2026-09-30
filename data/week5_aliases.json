@@ -1,0 +1,1766 @@
+{
+ "source": "Wikidata wbgetentities (en labels + aliases)",
+ "fetched": "2026-09-30",
+ "nodes": {
+  "Abomination_(character)": {
+   "label": "Abomination",
+   "aliases": [
+    "Emil Blonsky"
+   ]
+  },
+  "Adam_Warlock": {
+   "label": "Adam Warlock",
+   "aliases": [
+    "The Magus",
+    "Warlock",
+    "Him"
+   ]
+  },
+  "Agent_X_(Marvel_Comics)": {
+   "label": "Agent X",
+   "aliases": [
+    "Nijo",
+    "Alex Hayden"
+   ]
+  },
+  "Ajak": {
+   "label": "Ajak",
+   "aliases": [
+    "Ajak Celestia"
+   ]
+  },
+  "Alex_Wilder": {
+   "label": "Alex Wilder",
+   "aliases": []
+  },
+  "Anne_Weying": {
+   "label": "Anne Weying",
+   "aliases": [
+    "She-Venom"
+   ]
+  },
+  "Anole_(character)": {
+   "label": "Anole",
+   "aliases": [
+    "Victor Borkowski"
+   ]
+  },
+  "Anya_Corazon": {
+   "label": "Anya Corazón",
+   "aliases": [
+    "Spider-Girl",
+    "Araña",
+    "Anya Corazon"
+   ]
+  },
+  "Arabian_Knight_(character)": {
+   "label": "Arabian Knight",
+   "aliases": []
+  },
+  "Ares_(Marvel_Comics)": {
+   "label": "Ares",
+   "aliases": []
+  },
+  "Backhand_(character)": {
+   "label": "Backhand",
+   "aliases": []
+  },
+  "Balder_the_Brave": {
+   "label": "Balder",
+   "aliases": [
+    "Balder the Brave",
+    "Balder Odinson"
+   ]
+  },
+  "Battlestar_(character)": {
+   "label": "Battlestar",
+   "aliases": [
+    "Lemar Hoskins"
+   ]
+  },
+  "Baymax": {
+   "label": "Baymax",
+   "aliases": []
+  },
+  "Beta_Ray_Bill": {
+   "label": "Beta Ray Bill",
+   "aliases": [
+    "Beta-Ray Thor",
+    "Beta Ray Thor"
+   ]
+  },
+  "Betsy_Braddock": {
+   "label": "Betsy Braddock",
+   "aliases": [
+    "Captain Britain",
+    "Psylocke"
+   ]
+  },
+  "Bill_Foster_(character)": {
+   "label": "Bill Foster",
+   "aliases": []
+  },
+  "Bird-Brain_(Marvel_Comics)": {
+   "label": "Bird-Brain",
+   "aliases": []
+  },
+  "Black_Bolt": {
+   "label": "Black Bolt",
+   "aliases": [
+    "Blackagar Boltagon"
+   ]
+  },
+  "Black_Cat_(Marvel_Comics)": {
+   "label": "Black Cat",
+   "aliases": [
+    "Felicia Hardy",
+    "Cat"
+   ]
+  },
+  "Black_Fox_(Robert_Paine)": {
+   "label": "Black Fox (Robert Paine)",
+   "aliases": []
+  },
+  "Black_Jack_Tarr": {
+   "label": "Black Jack Tarr",
+   "aliases": []
+  },
+  "Black_Knight_(Marvel_Comics)": {
+   "label": "Black Knight",
+   "aliases": []
+  },
+  "Black_Marvel": {
+   "label": "Black Marvel",
+   "aliases": []
+  },
+  "Black_Panther_(character)": {
+   "label": "Black Panther",
+   "aliases": [
+    "T'Challa",
+    "Tchalla"
+   ]
+  },
+  "Black_Rider_(character)": {
+   "label": "Black Rider",
+   "aliases": [
+    "Matthew Masters"
+   ]
+  },
+  "Black_Widow_(Natasha_Romanova)": {
+   "label": "Black Widow",
+   "aliases": [
+    "Natasha Romanoff",
+    "Natalie Rushman",
+    "Natalia Alianovna Romanova"
+   ]
+  },
+  "Blackthorn_(character)": {
+   "label": "Blackthorn",
+   "aliases": []
+  },
+  "Blackwulf": {
+   "label": "Blackwulf",
+   "aliases": [
+    "Lucian"
+   ]
+  },
+  "Blade_(character)": {
+   "label": "Blade",
+   "aliases": [
+    "Eric Brooks",
+    "Daywalker",
+    "Eric Stokes Brooks",
+    "Hannibal Francis Blade",
+    "Frank Blade"
+   ]
+  },
+  "Blazing_Skull": {
+   "label": "Blazing Skull",
+   "aliases": []
+  },
+  "Blue_Bullet": {
+   "label": "Blue Bullet",
+   "aliases": []
+  },
+  "Blue_Diamond_(character)": {
+   "label": "Blue Diamond",
+   "aliases": []
+  },
+  "Blue_Eagle_(character)": {
+   "label": "Blue Eagle",
+   "aliases": [
+    "American Eagle",
+    "Cap'n Hawk",
+    "James Dore Jr.",
+    "James Dore"
+   ]
+  },
+  "Blue_Marvel": {
+   "label": "Blue Marvel",
+   "aliases": [
+    "Adam Brashear",
+    "Adam Bernard Brashear"
+   ]
+  },
+  "Bob,_Agent_of_Hydra": {
+   "label": "Bob, Agent of Hydra",
+   "aliases": []
+  },
+  "Box_(comics)": {
+   "label": "Box",
+   "aliases": [
+    "Roger Bochs",
+    "Omega"
+   ]
+  },
+  "Brain_Drain_(character)": {
+   "label": "Brain Drain",
+   "aliases": [
+    "Werner Schmidt"
+   ]
+  },
+  "Breeze_Barton": {
+   "label": "Breeze Barton",
+   "aliases": []
+  },
+  "Brian_Braddock": {
+   "label": "Brian Braddock",
+   "aliases": [
+    "Captain Avalon",
+    "Captain Britain"
+   ]
+  },
+  "Bucky_(Marvel_Comics)": {
+   "label": "Bucky",
+   "aliases": [
+    "Bucky Barnes",
+    "Fred Davis",
+    "Jack Monroe",
+    "Rick Jones",
+    "Lemar Hoskins",
+    "Julia Winters",
+    "Rikki Barnes"
+   ]
+  },
+  "Bug_(Marvel_Comics)": {
+   "label": "Bug",
+   "aliases": []
+  },
+  "Cable_(character)": {
+   "label": "Cable",
+   "aliases": [
+    "Nathan Summers",
+    "Nathan Christopher Charles Summers",
+    "Soldier X",
+    "Nathan Winters",
+    "Nathan Dayspring Askani'Son"
+   ]
+  },
+  "Cammi_(character)": {
+   "label": "Cammi",
+   "aliases": [
+    "Camille Benally"
+   ]
+  },
+  "Captain_Marvel_(Khn'nr)": {
+   "label": "Khn'nr",
+   "aliases": [
+    "Captain Marvel"
+   ]
+  },
+  "Captain_Marvel_(Marvel_Comics)": {
+   "label": "Captain Marvel",
+   "aliases": []
+  },
+  "Captain_Midlands": {
+   "label": "Captain Midlands",
+   "aliases": []
+  },
+  "Captain_Ultra": {
+   "label": "Captain Ultra",
+   "aliases": [
+    "Griffin Gogol"
+   ]
+  },
+  "Captain_Universe": {
+   "label": "Captain Universe",
+   "aliases": []
+  },
+  "Caretaker_(comics)": {
+   "label": "Caretaker",
+   "aliases": []
+  },
+  "Ch'od": {
+   "label": "Ch'od",
+   "aliases": []
+  },
+  "Charcoal_(comics)": {
+   "label": "Charcoal",
+   "aliases": [
+    "Charles Burlingame"
+   ]
+  },
+  "Chase_Stein": {
+   "label": "Chase Stein",
+   "aliases": []
+  },
+  "Citizen_V": {
+   "label": "Citizen V",
+   "aliases": []
+  },
+  "Cloak_and_Dagger_(characters)": {
+   "label": "Cloak and Dagger",
+   "aliases": []
+  },
+  "Coldblood": {
+   "label": "Coldblood",
+   "aliases": [
+    "Eric Savin"
+   ]
+  },
+  "Crane_Mother": {
+   "label": "Crane Mother",
+   "aliases": []
+  },
+  "Crippler_(character)": {
+   "label": "Crippler",
+   "aliases": []
+  },
+  "Cyclops_(Marvel_Comics)": {
+   "label": "Cyclops",
+   "aliases": [
+    "Scott Summers",
+    "Slim"
+   ]
+  },
+  "Dargo_Ktor": {
+   "label": "Dargo Ktor",
+   "aliases": []
+  },
+  "Darkdevil": {
+   "label": "Darkdevil",
+   "aliases": [
+    "Reilly Tyne"
+   ]
+  },
+  "Darkhawk": {
+   "label": "Darkhawk",
+   "aliases": [
+    "Christopher Powell"
+   ]
+  },
+  "Deadpool": {
+   "label": "Deadpool",
+   "aliases": [
+    "Wade Winston Wilson",
+    "Merc with a Mouth"
+   ]
+  },
+  "Deathlok": {
+   "label": "Deathlok",
+   "aliases": [
+    "Luther Manning"
+   ]
+  },
+  "Debrii": {
+   "label": "Debrii",
+   "aliases": [
+    "Deborah Fields"
+   ]
+  },
+  "Delroy_Garrett": {
+   "label": "Delroy Garrett",
+   "aliases": []
+  },
+  "Detroit_Steel": {
+   "label": "Detroit Steel",
+   "aliases": []
+  },
+  "Devil_Dinosaur": {
+   "label": "Devil Dinosaur",
+   "aliases": []
+  },
+  "Devil_Hulk": {
+   "label": "Devil Hulk",
+   "aliases": []
+  },
+  "Digitek_(character)": {
+   "label": "Digitek",
+   "aliases": [
+    "Jonathan Bryant"
+   ]
+  },
+  "Doctor_Druid": {
+   "label": "Doctor Druid",
+   "aliases": [
+    "Anthony Ludgate Druid"
+   ]
+  },
+  "Doctor_Nemesis": {
+   "label": "Doctor Nemesis",
+   "aliases": []
+  },
+  "Doctor_Spectrum": {
+   "label": "Doctor Spectrum",
+   "aliases": [
+    "Joseph Ledger"
+   ]
+  },
+  "Doctor_Strange": {
+   "label": "Doctor Strange",
+   "aliases": [
+    "Stephen Vincent Strange",
+    "Dr. Stephen Vincent Strange",
+    "Stephen \"Steve\" Vincent Strange",
+    "Stephen Strange",
+    "Dr. Strange"
+   ]
+  },
+  "Dogpool": {
+   "label": "Dogpool",
+   "aliases": [
+    "Mary Puppins",
+    "Merc with a bark"
+   ]
+  },
+  "Doom_2099": {
+   "label": "Doom 2099",
+   "aliases": [
+    "Victor von Doom"
+   ]
+  },
+  "Dragon_Lord_(character)": {
+   "label": "Dragon Lord",
+   "aliases": []
+  },
+  "Dusk_(comics)": {
+   "label": "Dusk",
+   "aliases": []
+  },
+  "Eddie_Brock": {
+   "label": "Eddie Brock",
+   "aliases": [
+    "Venom",
+    "Edward Charles Brock",
+    "Anti-Venom",
+    "Toxin",
+    "Edward Brock",
+    "King in Black"
+   ]
+  },
+  "Elsa_Bloodstone": {
+   "label": "Elsa Bloodstone",
+   "aliases": []
+  },
+  "Emma_Frost": {
+   "label": "Emma Frost",
+   "aliases": [
+    "White Queen",
+    "Emma Grace Frost",
+    "The White Rose",
+    "Sleeping Beauty",
+    "The Lady of Lies",
+    "The Lady of the Night",
+    "The Queen of Hellfire club",
+    "The Queen of Diamonds"
+   ]
+  },
+  "Empath_(character)": {
+   "label": "Empath",
+   "aliases": [
+    "Manuel Alfonso Rodrigo de la Rocha"
+   ]
+  },
+  "Emrys_Killebrew": {
+   "label": "Emrys Killebrew",
+   "aliases": []
+  },
+  "Enigma_(Marvel_Comics)": {
+   "label": "Enigma",
+   "aliases": []
+  },
+  "Ethan_Edwards": {
+   "label": "Ethan Edwards",
+   "aliases": []
+  },
+  "Fabio_Medina": {
+   "label": "Egg",
+   "aliases": [
+    "Goldballs",
+    "Fabio Medina"
+   ]
+  },
+  "Fandral": {
+   "label": "Fandral",
+   "aliases": [
+    "Fandral the Dashing"
+   ]
+  },
+  "Father_Time_(Marvel_Comics)": {
+   "label": "Father Time",
+   "aliases": []
+  },
+  "Fin_Fang_Foom": {
+   "label": "Fin Fang Foom",
+   "aliases": []
+  },
+  "Firebird_(Marvel_Comics)": {
+   "label": "Firebird",
+   "aliases": [
+    "Bonita Juárez"
+   ]
+  },
+  "Firelord_(character)": {
+   "label": "Firelord",
+   "aliases": [
+    "Pyreus Kril"
+   ]
+  },
+  "Flatman_(character)": {
+   "label": "Flatman",
+   "aliases": []
+  },
+  "Force_(comics)": {
+   "label": "Force",
+   "aliases": []
+  },
+  "Frankenstein's_Monster_(Marvel_Comics)": {
+   "label": "Frankenstein's Monster",
+   "aliases": [
+    "Frank"
+   ]
+  },
+  "Franklin_Richards_(character)": {
+   "label": "Franklin Richards",
+   "aliases": [
+    "Franklin Benjamin Richards",
+    "Tattletale",
+    "Psi-Lord",
+    "Ego-Spawn",
+    "Avatar"
+   ]
+  },
+  "Frog-Man": {
+   "label": "Frog-Man",
+   "aliases": [
+    "Eugene Patilio"
+   ]
+  },
+  "G._W._Bridge": {
+   "label": "G. W. Bridge",
+   "aliases": [
+    "George Washington Bridge"
+   ]
+  },
+  "Gargoyle_(comics)": {
+   "label": "Gargoyle",
+   "aliases": []
+  },
+  "Garrison_Kane": {
+   "label": "Garrison Kane",
+   "aliases": []
+  },
+  "Gauntlet_(Joseph_Green)": {
+   "label": "Gauntlet",
+   "aliases": [
+    "Joseph Green"
+   ]
+  },
+  "Genis-Vell": {
+   "label": "Genis-Vell",
+   "aliases": [
+    "Legacy",
+    "Captain Marvel",
+    "Photon"
+   ]
+  },
+  "Ghost_Rider": {
+   "label": "Ghost Rider",
+   "aliases": []
+  },
+  "Ghost_Rider_(Danny_Ketch)": {
+   "label": "Danny Ketch",
+   "aliases": [
+    "Daniel Ketch",
+    "Dan Ketch",
+    "Ghost Rider"
+   ]
+  },
+  "Ghost_Rider_(Johnny_Blaze)": {
+   "label": "Johnny Blaze",
+   "aliases": [
+    "Johnathon Blaze",
+    "Spirit of Vengeance",
+    "Ghost Rider"
+   ]
+  },
+  "Gladiator_(Kallark)": {
+   "label": "Gladiator",
+   "aliases": [
+    "Kallark"
+   ]
+  },
+  "Golem_(Marvel_Comics)": {
+   "label": "Golem",
+   "aliases": []
+  },
+  "Gorgon_(Inhuman)": {
+   "label": "Gorgon",
+   "aliases": [
+    "Gorgon Petragon"
+   ]
+  },
+  "Gremlin_(comics)": {
+   "label": "Gremlin",
+   "aliases": []
+  },
+  "Guardian_(Marvel_Comics)": {
+   "label": "Guardian",
+   "aliases": [
+    "James Hudson",
+    "James MacDonald Hudson",
+    "Weapon Alpha",
+    "Vindicator",
+    "The Antiguard",
+    "Mac Hudson",
+    "Jamie Hudson"
+   ]
+  },
+  "Guardsman_(character)": {
+   "label": "Guardsman",
+   "aliases": []
+  },
+  "Gwenpool": {
+   "label": "Gwenpool",
+   "aliases": [
+    "Gwendolyn Poole",
+    "Ghostface No-Pants Killer",
+    "Pink Ghost",
+    "Pink Slayer",
+    "Gwennie",
+    "Gwenlok",
+    "Harley-Gwen",
+    "Marshmallow Gwen",
+    "Gwen Poole"
+   ]
+  },
+  "Hank_Pym": {
+   "label": "Henry Pym",
+   "aliases": [
+    "Ant-Man",
+    "Giant-Man",
+    "Goliath",
+    "Yellowjacket",
+    "Wasp",
+    "Henry Jonathan Pym",
+    "Henry \"Hank\" Pym",
+    "Hank Pym"
+   ]
+  },
+  "Happy_Sam_Sawyer": {
+   "label": "Happy Sam Sawyer",
+   "aliases": [
+    "Happy Sam",
+    "Sam Sawyer",
+    "Samuel Sawyer"
+   ]
+  },
+  "Hawkeye_(comics)": {
+   "label": "Hawkeye",
+   "aliases": []
+  },
+  "Helix_(Marvel_Comics)": {
+   "label": "Helix",
+   "aliases": []
+  },
+  "Hellfire_(J._T._Slade)": {
+   "label": "Hellfire",
+   "aliases": []
+  },
+  "Hellion_(character)": {
+   "label": "Hellion",
+   "aliases": []
+  },
+  "Hercules_(Marvel_Comics)": {
+   "label": "Hercules",
+   "aliases": [
+    "Heracles",
+    "Hercules Panhellenios"
+   ]
+  },
+  "Hit-Monkey": {
+   "label": "Hit-Monkey",
+   "aliases": []
+  },
+  "Hornet_(comics)": {
+   "label": "Hornet",
+   "aliases": []
+  },
+  "Hrimhari": {
+   "label": "Hrimhari",
+   "aliases": []
+  },
+  "Hulk": {
+   "label": "Hulk",
+   "aliases": [
+    "The Incredible Hulk",
+    "David Banner",
+    "The Hulk",
+    "Green Hulk",
+    "Robert Bruce Banner"
+   ]
+  },
+  "Hulk_2099": {
+   "label": "Hulk 2099",
+   "aliases": []
+  },
+  "Hulkling": {
+   "label": "Hulkling",
+   "aliases": [
+    "Dorrek VIII",
+    "Theodore Altman",
+    "Teddy Altman"
+   ]
+  },
+  "Human_Fly_(character)": {
+   "label": "Human Fly",
+   "aliases": []
+  },
+  "Human_Torch": {
+   "label": "Human Torch",
+   "aliases": [
+    "Jonathan Lowell Spencer Storm",
+    "Jonathan Storm"
+   ]
+  },
+  "Human_Torch_(android)": {
+   "label": "Human Torch",
+   "aliases": [
+    "Jim Hammond",
+    "The Torch",
+    "The Original Human Torch"
+   ]
+  },
+  "Hybrid_(Scott_Washington)": {
+   "label": "Hybrid",
+   "aliases": []
+  },
+  "Hyperion_(character)": {
+   "label": "Hyperion",
+   "aliases": []
+  },
+  "Ikaris": {
+   "label": "Ikaris",
+   "aliases": []
+  },
+  "Illuminator_(Marvel_Comics)": {
+   "label": "Illuminator",
+   "aliases": []
+  },
+  "Inferno_(Dante_Pertuz)": {
+   "label": "Inferno",
+   "aliases": []
+  },
+  "Iron_Fist_(character)": {
+   "label": "Iron Fist",
+   "aliases": [
+    "Daniel Rand",
+    "Danny Rand"
+   ]
+  },
+  "Iron_Lad": {
+   "label": "Iron Lad",
+   "aliases": [
+    "Nathaniel Richards",
+    "Kang The Conqueror",
+    "Kid Immortus",
+    "Young Kang"
+   ]
+  },
+  "Iron_Man_(Ultimate_Marvel_character)": {
+   "label": "Ultimate Iron Man",
+   "aliases": [
+    "Antonio \"Tony\" Stark",
+    "Tony Stark"
+   ]
+  },
+  "Iron_Man_2020": {
+   "label": "Iron Man 2020",
+   "aliases": [
+    "Arno Stark"
+   ]
+  },
+  "Isaiah_Bradley": {
+   "label": "Isaiah Bradley",
+   "aliases": [
+    "Captain America",
+    "The Black Captain America"
+   ]
+  },
+  "Jack_Frost_(Marvel_Comics)": {
+   "label": "Jack Frost",
+   "aliases": []
+  },
+  "Jack_Monroe_(character)": {
+   "label": "Jack Monroe",
+   "aliases": []
+  },
+  "Janice_Lincoln": {
+   "label": "Janice Lincoln",
+   "aliases": []
+  },
+  "Jean_Grey": {
+   "label": "Jean Grey",
+   "aliases": [
+    "Marvel Girl",
+    "Jean Elaine Grises Summers",
+    "Jean Elaine Gray",
+    "Jean Grey-Summers",
+    "Phoenix",
+    "Dark Phoenix"
+   ]
+  },
+  "Jean_Grey_(X-Men_film_series)": {
+   "label": "Jean Grey",
+   "aliases": [
+    "Phoenix"
+   ]
+  },
+  "Jeffrey_Mace": {
+   "label": "Jeffrey Mace",
+   "aliases": [
+    "Patriot",
+    "Captain America"
+   ]
+  },
+  "Jericho_Drumm": {
+   "label": "Brother Voodoo",
+   "aliases": [
+    "Jericho Drumm",
+    "Doctor Voodoo"
+   ]
+  },
+  "Jessica_Jones": {
+   "label": "Jessica Jones",
+   "aliases": [
+    "Jessica Campbell Jones Cage",
+    "Jewel",
+    "Knightress",
+    "Power Woman"
+   ]
+  },
+  "John_Jameson_(character)": {
+   "label": "John Jameson",
+   "aliases": [
+    "Man-Wolf",
+    "John Jonah Jameson III",
+    "Colonel Jupiter",
+    "Stargod"
+   ]
+  },
+  "Jubilee_(character)": {
+   "label": "Jubilee",
+   "aliases": [
+    "Jubilation Lee"
+   ]
+  },
+  "Junior_Juniper": {
+   "label": "Junior Juniper",
+   "aliases": [
+    "Jonathan Juniper"
+   ]
+  },
+  "Justice_(New_Universe)": {
+   "label": "Justice",
+   "aliases": []
+  },
+  "Karnak_(character)": {
+   "label": "Karnak",
+   "aliases": [
+    "Karnak Mander-Azur"
+   ]
+  },
+  "Kid_Colt": {
+   "label": "Kid Colt",
+   "aliases": []
+  },
+  "Killpower": {
+   "label": "Killpower",
+   "aliases": [
+    "Killpower (Julius Mullarkey)"
+   ]
+  },
+  "Killraven": {
+   "label": "Killraven",
+   "aliases": []
+  },
+  "Kismet_(Marvel_Comics)": {
+   "label": "Kismet",
+   "aliases": [
+    "Paragon",
+    "Her",
+    "Ayesha"
+   ]
+  },
+  "Korvus": {
+   "label": "Korvus",
+   "aliases": []
+  },
+  "Kristoff_Vernard": {
+   "label": "Kristoff Vernard",
+   "aliases": [
+    "Inhuman Torch"
+   ]
+  },
+  "Leech_(character)": {
+   "label": "Leech",
+   "aliases": [
+    "Jimmy"
+   ]
+  },
+  "Lei_Kung_(character)": {
+   "label": "Lei Kung",
+   "aliases": [
+    "Lei-Kung",
+    "Yu-Ti",
+    "Lei Kung the Thunderer",
+    "Lei-Kung the Thunderer",
+    "The Thunderer"
+   ]
+  },
+  "Living_Lightning": {
+   "label": "Living Lightning",
+   "aliases": []
+  },
+  "Luke_Cage": {
+   "label": "Luke Cage",
+   "aliases": [
+    "Power Man",
+    "Carl Lucas"
+   ]
+  },
+  "Machine_Man": {
+   "label": "Machine Man",
+   "aliases": [
+    "Aaron Stack"
+   ]
+  },
+  "Magician_(Marvel_Comics)": {
+   "label": "Magician",
+   "aliases": []
+  },
+  "Mahr_Vehl": {
+   "label": "Ultimate Captain Marvel",
+   "aliases": [
+    "Mahr Vehl",
+    "Geheneris HalaSon Mahr Vehl",
+    "Doctor Philip Lawson"
+   ]
+  },
+  "Makkari_(character)": {
+   "label": "Makkari",
+   "aliases": [
+    "Mercury",
+    "Hurricane",
+    "Mike Curry",
+    "Marky-Boy",
+    "Major Mercury"
+   ]
+  },
+  "Man-Thing": {
+   "label": "Man-Thing",
+   "aliases": [
+    "Dr. Theodore Sallis",
+    "Ted Sallis"
+   ]
+  },
+  "Mania_(character)": {
+   "label": "Mania (symbiote)",
+   "aliases": []
+  },
+  "Mark_Hazzard:_Merc": {
+   "label": "Mark Hazzard: Merc",
+   "aliases": []
+  },
+  "Marvel_Boy_(Robert_Grayson)": {
+   "label": "Robert Grayson",
+   "aliases": [
+    "Marvel Boy"
+   ]
+  },
+  "Mayday_Parker": {
+   "label": "Spider-Girl",
+   "aliases": [
+    "May \"Mayday\" Parker",
+    "May Parker",
+    "Mayday Parker"
+   ]
+  },
+  "Miracleman_(character)": {
+   "label": "Miracleman",
+   "aliases": [
+    "Michael Moran",
+    "Marvelman"
+   ]
+  },
+  "Misty_Knight": {
+   "label": "Misty Knight",
+   "aliases": [
+    "Mercedes Knight"
+   ]
+  },
+  "Mockingbird_(Marvel_Comics)": {
+   "label": "Mockingbird",
+   "aliases": [
+    "Bobbi Morse",
+    "Bobbi Barton",
+    "Bobbi Morse-Barton",
+    "Barbara Morse",
+    "Barbara \"Bobbi\" Morse",
+    "Huntress"
+   ]
+  },
+  "Moon_Knight": {
+   "label": "Moon Knight",
+   "aliases": [
+    "Marc Spector"
+   ]
+  },
+  "Moondragon": {
+   "label": "Moondragon",
+   "aliases": [
+    "Heather Douglas",
+    "H. D. Steckley"
+   ]
+  },
+  "Moonglow_(comics)": {
+   "label": "Moonglow",
+   "aliases": [
+    "Arcanna Jones"
+   ]
+  },
+  "Morbius": {
+   "label": "Morbius",
+   "aliases": [
+    "Michael Morbius",
+    "Dr. Michael Morbius",
+    "Doctor Michael Morbius",
+    "Morbius, the Living Vampire"
+   ]
+  },
+  "Motormouth_(comics)": {
+   "label": "Motormouth",
+   "aliases": [
+    "Harley Davis"
+   ]
+  },
+  "Ms._Marvel": {
+   "label": "Ms. Marvel",
+   "aliases": []
+  },
+  "NFL_SuperPro": {
+   "label": "NFL Superpro",
+   "aliases": []
+  },
+  "Nightmask": {
+   "label": "Nightmask",
+   "aliases": []
+  },
+  "Nightwatch_(character)": {
+   "label": "Nightwatch",
+   "aliases": [
+    "Kevin Trench"
+   ]
+  },
+  "Noh-Varr": {
+   "label": "Noh-Varr",
+   "aliases": [
+    "Marvel Boy"
+   ]
+  },
+  "Nomad_(Marvel_Comics)": {
+   "label": "Nomad",
+   "aliases": []
+  },
+  "Northstar_(character)": {
+   "label": "Northstar",
+   "aliases": [
+    "Jean-Paul Beaubier",
+    "Jean-Paul Martin"
+   ]
+  },
+  "Nova_(Richard_Rider)": {
+   "label": "Nova",
+   "aliases": [
+    "Richard Rider"
+   ]
+  },
+  "Ogre_(Marvel_Comics)": {
+   "label": "Ogre",
+   "aliases": [
+    "Brian Dunlap"
+   ]
+  },
+  "Outlaw_(Marvel_Comics)": {
+   "label": "Outlaw",
+   "aliases": [
+    "Inez Temple",
+    "Crazy Inez"
+   ]
+  },
+  "Oya_(comics)": {
+   "label": "Temper",
+   "aliases": [
+    "Idie Okonkwo",
+    "Oya"
+   ]
+  },
+  "Paladin_(comics)": {
+   "label": "Paladin",
+   "aliases": []
+  },
+  "Patsy_Walker": {
+   "label": "Patsy Walker",
+   "aliases": [
+    "Hellcat",
+    "Patricia Walker",
+    "Trish Walker",
+    "Patricia Walker Baxter Hellstrom"
+   ]
+  },
+  "Peggy_Carter": {
+   "label": "Peggy Carter",
+   "aliases": [
+    "Margaret Elizabeth Carter"
+   ]
+  },
+  "Phil_Urich": {
+   "label": "Phil Urich",
+   "aliases": [
+    "Philip Benjamin Urich",
+    "Green Goblin",
+    "Hobgoblin",
+    "Goblin Knight",
+    "Goblin King"
+   ]
+  },
+  "Phoenix_Force": {
+   "label": "Phoenix Force",
+   "aliases": [
+    "Phoenix",
+    "Dark Phoenix"
+   ]
+  },
+  "Phyla-Vell": {
+   "label": "Phyla-Vell",
+   "aliases": []
+  },
+  "Power_Man_(Victor_Alvarez)": {
+   "label": "Power Man",
+   "aliases": [
+    "Víctor Álvarez"
+   ]
+  },
+  "Powerhouse_(Marvel_Comics)": {
+   "label": "Powerhouse",
+   "aliases": []
+  },
+  "Puck_(Marvel_Comics)": {
+   "label": "Puck",
+   "aliases": [
+    "Eugene Judd"
+   ]
+  },
+  "Quasar_(character)": {
+   "label": "Quasar",
+   "aliases": []
+  },
+  "Quicksilver_(Marvel_Comics)": {
+   "label": "Quicksilver",
+   "aliases": []
+  },
+  "Rachel_Summers": {
+   "label": "Rachel Summers",
+   "aliases": [
+    "Rachel Anne Summers",
+    "Rachel Grey",
+    "Mother Askani",
+    "Marvel Girl",
+    "Prestige",
+    "Rachel Grey-Summers",
+    "Askani"
+   ]
+  },
+  "Radian_(Morituri)": {
+   "label": "Radian",
+   "aliases": []
+  },
+  "Radioactive_Man_(comics)": {
+   "label": "Radioactive Man",
+   "aliases": [
+    "Chen Lu"
+   ]
+  },
+  "Ravage_2099": {
+   "label": "Ravage 2099",
+   "aliases": []
+  },
+  "Raza_Longknife": {
+   "label": "Raza Longknife",
+   "aliases": [
+    "Raza"
+   ]
+  },
+  "Red_Guardian": {
+   "label": "Red Guardian",
+   "aliases": []
+  },
+  "Red_Raven_(Marvel_Comics)": {
+   "label": "Red Raven",
+   "aliases": []
+  },
+  "Red_Wolf_(comics)": {
+   "label": "Red Wolf",
+   "aliases": [
+    "Wildrun",
+    "Johnny Wakely",
+    "Thomas Thunderhead",
+    "William Talltrees"
+   ]
+  },
+  "Redneck_(comics)": {
+   "label": "Redneck",
+   "aliases": []
+  },
+  "Ricochet_(comics)": {
+   "label": "Ricochet",
+   "aliases": []
+  },
+  "Rikki_Barnes": {
+   "label": "Rikki Barnes",
+   "aliases": [
+    "Rebecca \"Rikki\" Barnes",
+    "Rebecca Barnes"
+   ]
+  },
+  "Robbie_Baldwin": {
+   "label": "",
+   "aliases": []
+  },
+  "Rocket_Raccoon": {
+   "label": "Rocket Raccoon",
+   "aliases": [
+    "Rocket"
+   ]
+  },
+  "Rockman_(character)": {
+   "label": "Rockman (comics)",
+   "aliases": []
+  },
+  "Rockslide_(character)": {
+   "label": "Rockslide",
+   "aliases": [
+    "Santo Vaccarro"
+   ]
+  },
+  "Rom_the_Space_Knight": {
+   "label": "Rom",
+   "aliases": [
+    "Rom the Space Knight"
+   ]
+  },
+  "Ronin_(Marvel_Comics)": {
+   "label": "Ronin",
+   "aliases": []
+  },
+  "Ruby_Summers": {
+   "label": "Ruby Summers",
+   "aliases": []
+  },
+  "Rusty_Collins": {
+   "label": "Rusty Collins",
+   "aliases": [
+    "Firefist",
+    "Russell Collins"
+   ]
+  },
+  "Sabra_(character)": {
+   "label": "Sabra",
+   "aliases": [
+    "Ruth Bat-Seraph",
+    "SA-1980"
+   ]
+  },
+  "Satana_(Marvel_Comics)": {
+   "label": "Satana",
+   "aliases": []
+  },
+  "Scaredycat": {
+   "label": "Scaredycat",
+   "aliases": []
+  },
+  "Scarlet_Scarab": {
+   "label": "Scarlet Scarab",
+   "aliases": []
+  },
+  "Scarlet_Spider": {
+   "label": "Scarlet Spider",
+   "aliases": []
+  },
+  "Scarlet_Witch": {
+   "label": "Scarlet Witch",
+   "aliases": [
+    "Ana Maximoff",
+    "Wanda Magnus",
+    "Wanda Frank"
+   ]
+  },
+  "Scatterbrain_(Morituri)": {
+   "label": "Scatterbrain",
+   "aliases": []
+  },
+  "Scorpio_(Marvel_Comics)": {
+   "label": "Scorpio",
+   "aliases": []
+  },
+  "Sean_and_Chris": {
+   "label": "Sean and Chris",
+   "aliases": []
+  },
+  "Sentry_(Robert_Reynolds)": {
+   "label": "Sentry",
+   "aliases": []
+  },
+  "Shamrock_(comics)": {
+   "label": "Shamrock",
+   "aliases": []
+  },
+  "Shang-Chi": {
+   "label": "Shang-Chi",
+   "aliases": [
+    "Master of Kung Fu",
+    "Brother Hand",
+    "Commander Hand",
+    "Rising and Advancing of the Spirit",
+    "Deadly Hands",
+    "Zheng Shang-Chi"
+   ]
+  },
+  "Shatterstar": {
+   "label": "Shatterstar",
+   "aliases": [
+    "Ben Gaveedra",
+    "Gaveedra Seven"
+   ]
+  },
+  "She-Hulk": {
+   "label": "She-Hulk",
+   "aliases": [
+    "Jennifer Walters",
+    "Jen Walters"
+   ]
+  },
+  "She-Hulk_(Lyra)": {
+   "label": "Lyra",
+   "aliases": [
+    "She-Hulk",
+    "Lyra Walters",
+    "Savage She-Hulk"
+   ]
+  },
+  "Shear_(character)": {
+   "label": "Shear",
+   "aliases": []
+  },
+  "Shuri_(character)": {
+   "label": "Shuri",
+   "aliases": [
+    "Aja-Adanna",
+    "Black Panther"
+   ]
+  },
+  "Silencer_(comics)": {
+   "label": "Silencer",
+   "aliases": []
+  },
+  "Silhouette_(comics)": {
+   "label": "Silhouette",
+   "aliases": [
+    "Silhouette Chord"
+   ]
+  },
+  "Silk_(character)": {
+   "label": "Silk",
+   "aliases": [
+    "Cindy Moon"
+   ]
+  },
+  "Skull_the_Slayer": {
+   "label": "Skull the Slayer",
+   "aliases": []
+  },
+  "Snapdragon_(Morituri)": {
+   "label": "Snapdragon",
+   "aliases": []
+  },
+  "Solarman": {
+   "label": "Solarman",
+   "aliases": []
+  },
+  "Solo_(Marvel_Comics)": {
+   "label": "Solo",
+   "aliases": []
+  },
+  "Solomon_Kane_(comics)": {
+   "label": "Solomon Kane",
+   "aliases": []
+  },
+  "Speed_(character)": {
+   "label": "Speed",
+   "aliases": [
+    "Thomas Shepherd",
+    "Tommy Shepherd"
+   ]
+  },
+  "Spider-Bitch_(Ashley_Barton)": {
+   "label": "Spider-Bitch",
+   "aliases": []
+  },
+  "Spider-Girl": {
+   "label": "Spider-Girl",
+   "aliases": []
+  },
+  "Spider-Man": {
+   "label": "Spider-Man",
+   "aliases": [
+    "Wallcrawler",
+    "Web-slinger",
+    "Spidey",
+    "The Human Spider",
+    "The Amazing Spider-Man",
+    "The Fantastic Spider-Man",
+    "Your Friendly Neighborhood Spider-Man"
+   ]
+  },
+  "Spider-Man_(Marvel_Mangaverse)": {
+   "label": "Spider-Man",
+   "aliases": []
+  },
+  "Spider-Man_Noir": {
+   "label": "Spider-Man Noir",
+   "aliases": [
+    "Peter Parker"
+   ]
+  },
+  "Spider-UK": {
+   "label": "Spider-UK",
+   "aliases": []
+  },
+  "Spider-Woman": {
+   "label": "Spider-Woman",
+   "aliases": []
+  },
+  "Spider-Woman_(Gwen_Stacy)": {
+   "label": "Spider-Woman",
+   "aliases": [
+    "Gwen Stacy",
+    "Spider-Gwen",
+    "White Widow",
+    "Ghost Spider",
+    "Gwenom"
+   ]
+  },
+  "Spider-Woman_(Jessica_Drew)": {
+   "label": "Jessica Drew",
+   "aliases": [
+    "Spider-Woman",
+    "Jess Drew"
+   ]
+  },
+  "Spitfire_(character)": {
+   "label": "Spitfire",
+   "aliases": []
+  },
+  "Star_Brand": {
+   "label": "Star Brand",
+   "aliases": []
+  },
+  "Star-Lord": {
+   "label": "Star-Lord",
+   "aliases": [
+    "Star Lord",
+    "Peter Quill",
+    "Starlord",
+    "Star lord"
+   ]
+  },
+  "Starhawk_(character)": {
+   "label": "Starhawk",
+   "aliases": []
+  },
+  "Starr_the_Slayer": {
+   "label": "Starr the Slayer",
+   "aliases": []
+  },
+  "Steel_Spider": {
+   "label": "Steel Spider",
+   "aliases": [
+    "Ollie Osnick",
+    "Oliver Osnick",
+    "Kid Ock",
+    "Spider-Kid"
+   ]
+  },
+  "Stingray_(Marvel_Comics)": {
+   "label": "Stingray",
+   "aliases": []
+  },
+  "Storm_(Marvel_Comics)": {
+   "label": "Storm",
+   "aliases": [
+    "Ororo Munroe"
+   ]
+  },
+  "Straw_Man_(comics)": {
+   "label": "Straw Man",
+   "aliases": []
+  },
+  "Super_Rabbit": {
+   "label": "Super Rabbit",
+   "aliases": []
+  },
+  "Surge_(Marvel_Comics)": {
+   "label": "Surge",
+   "aliases": [
+    "Noriko Ashida",
+    "Nori Ashida"
+   ]
+  },
+  "Synapse_(character)": {
+   "label": "Synapse",
+   "aliases": []
+  },
+  "Tarantula_(Marvel_Comics)": {
+   "label": "Tarantula",
+   "aliases": []
+  },
+  "The_Union_(Marvel)": {
+   "label": "The Union",
+   "aliases": []
+  },
+  "The_Witness_(character)": {
+   "label": "Witness",
+   "aliases": []
+  },
+  "Thena": {
+   "label": "Thena",
+   "aliases": [
+    "Azura",
+    "Athena"
+   ]
+  },
+  "Thin_Man_(character)": {
+   "label": "Thin Man",
+   "aliases": []
+  },
+  "Thor_Girl": {
+   "label": "Thor Girl",
+   "aliases": [
+    "Tarene",
+    "Tara Olson",
+    "Thorita",
+    "Spirit of the Jewel",
+    "Designate"
+   ]
+  },
+  "Thunderbolt_(Marvel_Comics)": {
+   "label": "Thunderbolt",
+   "aliases": []
+  },
+  "Thunderclap_(comics)": {
+   "label": "Thunderclap",
+   "aliases": []
+  },
+  "Timeslip_(comics)": {
+   "label": "Timeslip",
+   "aliases": []
+  },
+  "Toro_(character)": {
+   "label": "Toro",
+   "aliases": []
+  },
+  "Toxyn": {
+   "label": "Toxyn",
+   "aliases": []
+  },
+  "Turbo_(comics)": {
+   "label": "Turbo",
+   "aliases": []
+  },
+  "Two-Gun_Kid": {
+   "label": "Two-Gun Kid",
+   "aliases": [
+    "Matthew Hawk"
+   ]
+  },
+  "Typeface_(character)": {
+   "label": "Typeface",
+   "aliases": [
+    "Gordon Thomas"
+   ]
+  },
+  "U.S._Agent": {
+   "label": "U.S. Agent",
+   "aliases": [
+    "John Walker",
+    "John F. Walker jr",
+    "Captain America",
+    "Super-Patriot",
+    "Jack Daniels",
+    "Liegeman"
+   ]
+  },
+  "Ulysses_Bloodstone": {
+   "label": "Ulysses Bloodstone",
+   "aliases": []
+  },
+  "Union_Jack_(Joseph_Chapman)": {
+   "label": "Union Jack",
+   "aliases": []
+  },
+  "Union_Jack_(Marvel_Comics)": {
+   "label": "Union Jack",
+   "aliases": []
+  },
+  "Ursa_Major_(character)": {
+   "label": "Ursa Major",
+   "aliases": [
+    "Mikhail Uriokovitch Ursus"
+   ]
+  },
+  "Vance_Astrovik": {
+   "label": "Vance Astrovik",
+   "aliases": [
+    "Marvel Boy"
+   ]
+  },
+  "Venom_(character)": {
+   "label": "Venom",
+   "aliases": []
+  },
+  "Vindicator_(comics)": {
+   "label": "Vindicator",
+   "aliases": [
+    "Heather Hudson",
+    "Heather McNeil-Hudson",
+    "Guardian",
+    "Heather McNeil Hudson",
+    "Heather McNeil"
+   ]
+  },
+  "Vulcan_(Marvel_Comics)": {
+   "label": "Vulcan",
+   "aliases": [
+    "Gabriel Summers"
+   ]
+  },
+  "Vyking": {
+   "label": "Vyking",
+   "aliases": []
+  },
+  "War_Machine": {
+   "label": "War Machine",
+   "aliases": [
+    "James Rhodes",
+    "Iron Man"
+   ]
+  },
+  "Werewolf_by_Night": {
+   "label": "Werewolf by Night",
+   "aliases": [
+    "Werewolf",
+    "Jack Russel"
+   ]
+  },
+  "White_Tiger_(Heroes_for_Hire)": {
+   "label": "White Tiger",
+   "aliases": []
+  },
+  "White_Tiger_(comics)": {
+   "label": "White Tiger",
+   "aliases": []
+  },
+  "Whizzer_(Robert_Frank)": {
+   "label": "Whizzer",
+   "aliases": []
+  },
+  "Wild_Child_(character)": {
+   "label": "Wild Child",
+   "aliases": [
+    "Kyle Gibney",
+    "Weapon Omega",
+    "Wildheart",
+    "Wildchild"
+   ]
+  },
+  "Will_o'_the_Wisp_(comics)": {
+   "label": "Will o' the Wisp",
+   "aliases": [
+    "Wisp",
+    "The Wisp",
+    "Jackson Arvad",
+    "Dr. Jackson Arvad"
+   ]
+  },
+  "William_Burnside_(character)": {
+   "label": "Grand Director",
+   "aliases": [
+    "William Burnside",
+    "Steven Rogers",
+    "Steve Rogers",
+    "Captain America"
+   ]
+  },
+  "Wolverine_(Ultimate_Marvel_character)": {
+   "label": "Ultimate Wolverine",
+   "aliases": [
+    "James Howlett",
+    "Logan",
+    "Weapon X",
+    "Lucky Jim",
+    "Wolverine"
+   ]
+  },
+  "Wolverine_(character)": {
+   "label": "Wolverine",
+   "aliases": [
+    "James Howlett",
+    "Scarlett",
+    "Jim Logan",
+    "Weapon X",
+    "Patch",
+    "Experiment X",
+    "Agent Ten",
+    "Logan"
+   ]
+  },
+  "Xorn": {
+   "label": "Xorn",
+   "aliases": []
+  },
+  "Yelena_Belova": {
+   "label": "Yelena Belova",
+   "aliases": [
+    "Black Widow"
+   ]
+  },
+  "Yo-Yo_Rodriguez": {
+   "label": "Yo-Yo Rodriguez",
+   "aliases": []
+  },
+  "Zombie_(comics)": {
+   "label": "Zombie",
+   "aliases": []
+  }
+ }
+}
